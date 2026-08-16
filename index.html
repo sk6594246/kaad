@@ -3,903 +3,772 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>KAAD Portraits — Curated Visual Work</title>
-<meta name="description" content="KAAD Portraits — a curated collection of editorial, landscape, and portrait photography." />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0a0a'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Georgia,serif' fill='%23D4AF37' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
+<title>KAAD Portraits</title>
+<meta name="description" content="KAAD Portraits — curated photography portfolio." />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%230a0c10'/%3E%3Ctext x='50' y='68' font-size='58' font-family='Georgia,serif' fill='%23e5c158' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" />
 <link rel="manifest" href="manifest.json" />
-<meta name="theme-color" content="#0a0a0a" />
-<meta name="mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-<meta name="apple-mobile-web-app-title" content="KAAD" />
-<link rel="apple-touch-icon" href="icons/icon-192.svg" />
+<meta name="theme-color" content="#0a0c10" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="KAAD Portraits" />
-<meta property="og:description" content="A curated collection of editorial, landscape, and portrait photography." />
+<meta property="og:description" content="Curated photography portfolio." />
 <meta property="og:image" content="" id="ogImageMeta" />
-<meta name="twitter:card" content="summary_large_image" />
-<script src="https://cdn.tailwindcss.com"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moderna:ital,opsz,wght@0,6..96,400;0,6..96,700;1,6..96,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-<script>
-  tailwind.config = {
-    theme: {
-      extend: {
-        colors: {
-          brand: {
-            gold: 'rgb(var(--brand-gold) / <alpha-value>)',
-            dark: 'rgb(var(--brand-dark) / <alpha-value>)',
-            light: 'rgb(var(--brand-light) / <alpha-value>)',
-            muted: 'rgb(var(--brand-muted) / <alpha-value>)',
-            border: 'rgb(var(--brand-border) / <alpha-value>)',
-            surface: 'rgb(var(--brand-surface) / <alpha-value>)'
-          }
-        },
-        fontFamily: { serif: ['"Bodoni Moderna"', 'serif'], sans: ['Inter', 'sans-serif'] },
-        spacing: { wrap: '1.5rem', content: '1.5rem' },
-        animation: {
-          'fade-in': 'fadeIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-          'slide-up': 'slideUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards',
-        },
-        keyframes: {
-          fadeIn: { '0%': { opacity: '0' }, '100%': { opacity: '1' } },
-          slideUp: { '0%': { opacity: '0', transform: 'translateY(20px)' }, '100%': { opacity: '1', transform: 'translateY(0)' } }
-        }
-      }
-    }
-  }
-</script>
-<script>
-  (function () {
-    try {
-      if (localStorage.getItem('kaad-theme') === 'light') {
-        document.documentElement.classList.add('theme-light');
-      }
-    } catch (e) {}
-  })();
-</script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --brand-gold: 212 175 55;
-    --brand-dark: 10 10 10;
-    --brand-light: 229 229 229;
-    --brand-muted: 138 138 138;
-    --brand-border: 42 42 42;
-    --brand-surface: 18 18 18;
-    /* Fluid design tokens */
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-out-soft: cubic-bezier(0.22, 1, 0.36, 1);
-    --duration-fast: 0.25s;
-    --duration-med: 0.55s;
-    --duration-slow: 0.9s;
-    --space-page: clamp(1.15rem, 4vw, 2rem);
-    --space-section-y: clamp(4rem, 12vw, 9rem);
-    --space-section-y-sm: clamp(3rem, 8vw, 6rem);
-    --text-fluid-xs: clamp(0.65rem, 0.6rem + 0.2vw, 0.75rem);
-    --text-fluid-sm: clamp(0.8rem, 0.75rem + 0.25vw, 0.95rem);
-    --text-fluid-base: clamp(0.9rem, 0.85rem + 0.35vw, 1.05rem);
-    --gap-gallery: clamp(1rem, 2.5vw, 2rem);
-  }
-  html.theme-light {
-    --brand-gold: 154 116 26;
-    --brand-dark: 250 249 246;
-    --brand-light: 26 26 26;
-    --brand-muted: 110 105 97;
-    --brand-border: 224 219 209;
-    --brand-surface: 242 240 235;
-  }
-  html { scroll-behavior: smooth; }
-  @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-  }
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: rgb(var(--brand-dark));
-    color: rgb(var(--brand-light));
-    transition: background-color 0.45s var(--ease-out-soft), color 0.45s var(--ease-out-soft);
-    font-size: var(--text-fluid-base);
-    line-height: 1.6;
-  }
-  .font-serif { font-family: 'Bodoni Moderna', serif; }
+:root {
+  --bg-dark: #0a0c10;
+  --bg-card: rgba(18, 22, 30, 0.75);
+  --bg-card-hover: rgba(28, 34, 46, 0.85);
+  --bg-input: rgba(15, 18, 26, 0.9);
+  --border-color: rgba(255, 255, 255, 0.1);
+  --border-gold: rgba(229, 193, 88, 0.35);
+  --primary-gold: #e5c158;
+  --primary-gold-hover: #f5d475;
+  --gold-glow: rgba(229, 193, 88, 0.25);
+  --text-main: #f0f3f8;
+  --text-muted: #9aa4b5;
+  --text-dim: #64748b;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,0.3);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.55);
+  --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  --space-page: clamp(1.15rem, 4vw, 2rem);
+  --space-section: clamp(3.5rem, 10vw, 7rem);
+}
+html.theme-light {
+  --bg-dark: #f7f5f0;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-input: rgba(255, 255, 255, 0.95);
+  --border-color: rgba(0, 0, 0, 0.08);
+  --border-gold: rgba(154, 116, 26, 0.35);
+  --primary-gold: #9a741a;
+  --primary-gold-hover: #b8922e;
+  --gold-glow: rgba(154, 116, 26, 0.2);
+  --text-main: #1a1a1a;
+  --text-muted: #6e695f;
+  --text-dim: #8a8478;
+  --shadow-sm: 0 4px 14px rgba(0,0,0,0.08);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.12);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+h1, h2, h3, h4, .brand-title { font-family: var(--font-heading); letter-spacing: 0.04em; font-weight: 600; color: var(--text-main); }
+.gold-text {
+  background: linear-gradient(135deg, #fff2c6 0%, #e5c158 50%, #9e7f26 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+}
+html.theme-light .gold-text {
+  background: linear-gradient(135deg, #c9a227 0%, #9a741a 50%, #6b5010 100%);
+  -webkit-background-clip: text; background-clip: text;
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-page); }
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition);
+}
+.glass:hover { border-color: var(--border-gold); }
+.btn {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.75rem 1.35rem; border-radius: 9999px; font-size: 0.8rem;
+  font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  text-decoration: none; border: none; cursor: pointer; transition: var(--transition);
+  font-family: var(--font-body);
+}
+.btn-primary { background: linear-gradient(135deg, #e5c158, #a68128); color: #0a0c10; box-shadow: 0 8px 24px var(--gold-glow); }
+.btn-primary:hover { transform: translateY(-2px); filter: brightness(1.05); }
+.btn-ghost { background: transparent; color: var(--text-main); border: 1px solid var(--border-color); }
+.btn-ghost:hover { border-color: var(--primary-gold); color: var(--primary-gold); }
+.section { padding: var(--space-section) 0; }
+.section-label {
+  font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--primary-gold); margin-bottom: 0.75rem; font-weight: 600;
+}
+.section-title { font-size: clamp(1.75rem, 4vw, 2.75rem); margin-bottom: 1rem; }
+.section-sub { color: var(--text-muted); max-width: 36rem; margin-bottom: 2rem; }
 
-  /* Fluid page gutters (overrides Tailwind px-wrap utility) */
-  .px-wrap {
-    padding-left: var(--space-page) !important;
-    padding-right: var(--space-page) !important;
-  }
-  .fluid-section {
-    padding-top: var(--space-section-y) !important;
-    padding-bottom: var(--space-section-y) !important;
-  }
-  .fluid-section-sm {
-    padding-top: var(--space-section-y-sm) !important;
-    padding-bottom: var(--space-section-y-sm) !important;
-  }
+/* Nav */
+#siteNav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 900;
+  transition: all 0.3s ease; padding: 1.25rem 0;
+  border-bottom: 1px solid transparent;
+}
+#siteNav.scrolled {
+  background: color-mix(in srgb, var(--bg-dark) 92%, transparent);
+  backdrop-filter: blur(16px); padding: 0.85rem 0;
+  border-bottom-color: var(--border-color);
+}
+.nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.nav-brand { display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit; }
+.nav-logo {
+  width: 42px; height: 42px; border-radius: 12px;
+  background: linear-gradient(135deg, #e5c158, #a68128);
+  display: flex; align-items: center; justify-content: center; color: #0a0c10;
+  font-family: var(--font-heading); font-weight: 700; font-size: 1.1rem;
+  box-shadow: 0 4px 15px var(--gold-glow);
+}
+.nav-links { display: flex; align-items: center; gap: 1.5rem; }
+.nav-links a {
+  font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--text-muted); text-decoration: none; transition: color 0.2s;
+}
+.nav-links a:hover, .nav-links a.active { color: var(--primary-gold); }
+.nav-actions { display: flex; align-items: center; gap: 0.65rem; }
+.icon-btn {
+  width: 38px; height: 38px; border-radius: 10px; border: 1px solid var(--border-color);
+  background: transparent; color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: var(--transition);
+}
+.icon-btn:hover { color: var(--primary-gold); border-color: var(--border-gold); }
+#mobileMenuBtn { display: none; }
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  #mobileMenuBtn { display: flex; }
+}
 
-  .nav-link-underline { position: relative; }
-  .nav-link-underline::after {
-    content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 1px;
-    background-color: currentColor; transform: scaleX(0); transform-origin: right;
-    transition: transform 0.6s var(--ease-out-expo);
-  }
-  .nav-link-underline:hover::after { transform: scaleX(1); transform-origin: left; }
+/* Mobile drawer */
+#mobileMenu {
+  position: fixed; inset: 0; z-index: 950;
+  background: color-mix(in srgb, var(--bg-dark) 96%, transparent);
+  backdrop-filter: blur(20px);
+  display: flex; flex-direction: column; padding: 5rem var(--space-page) 2rem;
+  opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+}
+#mobileMenu.open { opacity: 1; pointer-events: auto; }
+#mobileMenu a {
+  font-family: var(--font-heading); font-size: 1.5rem; color: var(--text-main);
+  text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid var(--border-color);
+}
+#mobileMenu a:hover { color: var(--primary-gold); }
 
-  .cat-btn {
-    transition: color var(--duration-med) var(--ease-out-soft),
-                border-color var(--duration-med) var(--ease-out-soft),
-                opacity var(--duration-fast) ease,
-                transform var(--duration-fast) var(--ease-out-soft);
-  }
-  .cat-btn:hover { transform: translateY(-1px); }
-  .cat-btn.active { color: rgb(var(--brand-light)); border-color: rgb(var(--brand-gold)); }
-  .cat-btn:not(.active) { color: rgb(var(--brand-muted)); border-color: transparent; }
+/* Hero */
+#home {
+  position: relative; min-height: 92vh; display: flex; align-items: flex-end;
+  padding: 8rem 0 4rem; overflow: hidden;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-bg img {
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.45;
+  transform: scale(1.05);
+}
+html.theme-light .hero-bg img { opacity: 0.3; }
+.hero-bg::after {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 55%, color-mix(in srgb, var(--bg-dark) 70%, transparent) 100%);
+}
+.hero-content { position: relative; z-index: 1; max-width: 720px; }
+.hero-content h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1rem; }
+.hero-content p { color: var(--text-muted); font-size: 1.05rem; margin-bottom: 1.75rem; max-width: 34rem; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
-  .aspect-portrait { aspect-ratio: 3/4; }
+/* Album feature card */
+#album .album-card {
+  display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; align-items: center;
+}
+@media (max-width: 800px) { #album .album-card { grid-template-columns: 1fr; } }
+.album-photo {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  aspect-ratio: 4/3; border: 1px solid var(--border-color);
+}
+.album-photo img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.album-photo:hover img { transform: scale(1.04); }
+.album-photo a.overlay-link {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: flex-end;
+  padding: 1rem; text-decoration: none;
+}
+.album-photo .open-badge {
+  background: rgba(10,12,16,0.85); color: var(--primary-gold);
+  padding: 0.45rem 0.9rem; border-radius: 9999px; font-size: 0.7rem;
+  letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid var(--border-gold);
+}
 
-  /* Frame merges with image: soft inset edge instead of hard outer border */
-  .gallery-frame {
-    border: none;
-    overflow: hidden;
-    isolation: isolate;
-    background: rgb(var(--brand-surface));
-    box-shadow:
-      inset 0 0 0 1px rgb(var(--brand-border) / 0.45),
-      0 24px 48px -16px rgba(0, 0, 0, 0.55);
-    transition: box-shadow var(--duration-med) var(--ease-out-soft);
-  }
-  .group:hover .gallery-frame {
-    box-shadow:
-      inset 0 0 0 1px rgb(var(--brand-gold) / 0.28),
-      0 28px 56px -14px rgba(0, 0, 0, 0.6);
-  }
-  .gallery-frame .skeleton {
-    border-radius: inherit;
-    box-shadow: inset 0 0 40px rgb(var(--brand-dark) / 0.35);
-  }
-  .gallery-img {
-    transition: transform 1.2s var(--ease-out-expo), filter 0.55s var(--ease-out-soft), opacity 0.65s var(--ease-out-soft);
-    opacity: 0;
-    filter: blur(10px);
-    transform: scale(1.04);
-  }
-  .gallery-img.loaded {
-    opacity: 1;
-    filter: blur(0);
-    transform: scale(1);
-  }
-  .group:hover .gallery-img.loaded { transform: scale(1.045); filter: brightness(1.05); }
+/* Gallery */
+.cat-bar { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.75rem; }
+.cat-btn {
+  padding: 0.45rem 1rem; border-radius: 9999px; border: 1px solid transparent;
+  background: transparent; color: var(--text-muted); font-size: 0.75rem;
+  text-transform: uppercase; letter-spacing: 0.1em; cursor: pointer; transition: var(--transition);
+  font-family: var(--font-body);
+}
+.cat-btn:hover { color: var(--text-main); }
+.cat-btn.active { border-color: var(--primary-gold); color: var(--text-main); }
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+}
+.gallery-card {
+  position: relative; border-radius: var(--radius-md); overflow: hidden;
+  aspect-ratio: 3/4; border: 1px solid var(--border-color); cursor: pointer;
+  background: var(--bg-card);
+}
+.gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.gallery-card:hover img { transform: scale(1.06); }
+.gallery-card .cap {
+  position: absolute; left: 0; right: 0; bottom: 0; padding: 1rem;
+  background: linear-gradient(transparent, rgba(0,0,0,0.75));
+  font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: #fff;
+}
+#galleryEmpty { color: var(--text-muted); text-align: center; padding: 3rem 1rem; }
 
-  /* Fluid gallery grid */
-  #galleryGrid {
-    gap: var(--gap-gallery) !important;
-    row-gap: clamp(1.75rem, 4vw, 3rem) !important;
-  }
-  .gallery-card-fluid {
-    opacity: 0;
-    transform: translateY(22px) scale(0.98);
-    transition: opacity 0.75s var(--ease-out-expo), transform 0.75s var(--ease-out-expo);
-  }
-  .gallery-card-fluid.is-in {
-    opacity: 1;
-    transform: none;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .gallery-card-fluid { opacity: 1; transform: none; transition: none; }
-  }
+/* Services */
+.services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.25rem; }
+.service-card { padding: 1.5rem; }
+.service-card h3 { font-size: 1.15rem; margin: 0.5rem 0 0.35rem; }
+.service-card .price { color: var(--primary-gold); font-weight: 600; font-size: 0.95rem; margin-bottom: 0.75rem; }
+.service-card ul { list-style: none; color: var(--text-muted); font-size: 0.85rem; }
+.service-card li { padding: 0.25rem 0; padding-left: 1rem; position: relative; }
+.service-card li::before { content: '•'; position: absolute; left: 0; color: var(--primary-gold); }
 
-  /* Hero → gallery fluid blend */
-  #home.hero-fluid {
-    margin-bottom: 0;
-  }
-  #home.hero-fluid .hero-blend {
-    position: absolute;
-    left: 0; right: 0; bottom: 0;
-    height: clamp(6rem, 18vw, 12rem);
-    background: linear-gradient(
-      to bottom,
-      transparent 0%,
-      rgb(var(--brand-dark) / 0.55) 45%,
-      rgb(var(--brand-dark)) 100%
-    );
-    pointer-events: none;
-    z-index: 5;
-  }
-  #gallerySection.fluid-blend-top {
-    margin-top: clamp(-3rem, -6vw, -1.5rem);
-    position: relative;
-    z-index: 6;
-  }
+/* Terms */
+.terms-list { display: flex; flex-direction: column; gap: 1rem; }
+.term-item { padding: 1.25rem 1.5rem; }
+.term-item h3 { font-size: 1rem; margin-bottom: 0.4rem; }
+.term-item p { color: var(--text-muted); font-size: 0.9rem; }
 
-  /* Focus rings (focusRings) */
-  .ux-focus-rings :focus-visible {
-    outline: 2px solid rgb(var(--brand-gold));
-    outline-offset: 3px;
-  }
-  .ux-focus-rings button:focus:not(:focus-visible),
-  .ux-focus-rings a:focus:not(:focus-visible) { outline: none; }
+/* About */
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
+@media (max-width: 800px) { .about-grid { grid-template-columns: 1fr; } }
 
-  /* Nav shrink on scroll */
-  #navPill {
-    transition: padding 0.35s ease, box-shadow 0.35s ease, background-color 0.35s ease;
-  }
-  #navPill.nav-compact {
-    padding-top: 0.55rem;
-    padding-bottom: 0.55rem;
-    box-shadow: 0 12px 40px -8px rgba(0,0,0,0.55);
-  }
+/* Testimonials */
+.testimonials-track {
+  display: flex; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory;
+  padding-bottom: 0.5rem; -webkit-overflow-scrolling: touch;
+}
+.testimonials-track.hide-scroll { scrollbar-width: none; }
+.testimonials-track.hide-scroll::-webkit-scrollbar { display: none; }
+.t-card {
+  flex: 0 0 min(320px, 85vw); scroll-snap-align: start; padding: 1.35rem;
+}
+.t-card p.quote { font-size: 0.95rem; margin-bottom: 1rem; color: var(--text-main); }
+.t-card .who { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--text-muted); }
+.testimonials-vertical {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem;
+}
 
-  /* Hero Ken Burns */
-  #heroImg.ken-burns {
-    animation: kenBurns 28s ease-in-out infinite alternate;
-    transform-origin: center center;
-  }
-  @keyframes kenBurns {
-    from { transform: scale(1); }
-    to { transform: scale(1.08); }
-  }
-  /* Hero slow wave (SVG displacement) — starts on load */
-  #heroImg.hero-wave {
-    filter: url(#heroWaveFilter);
-    will-change: filter;
-  }
-  #heroImg.ken-burns.hero-wave {
-    /* keep zoom; wave is filter-only so both can combine */
-  }
-  @media (prefers-reduced-motion: reduce) {
-    #heroImg.ken-burns { animation: none; }
-    #heroImg.hero-wave { filter: none; }
-  }
+/* Contact */
+.contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 2rem; }
+@media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+.contact-meta a, .contact-meta button {
+  display: flex; align-items: center; gap: 0.6rem; color: var(--text-muted);
+  text-decoration: none; background: none; border: none; cursor: pointer;
+  font-family: inherit; font-size: 0.9rem; padding: 0.35rem 0; transition: color 0.2s;
+}
+.contact-meta a:hover, .contact-meta button:hover { color: var(--primary-gold); }
+.contact-form label { display: block; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-muted); margin-bottom: 0.35rem; }
+.contact-form input, .contact-form textarea, .contact-form select, .admin-input, .admin-select {
+  width: 100%; padding: 0.7rem 0.9rem; border-radius: var(--radius-sm);
+  border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-main);
+  font-family: inherit; font-size: 0.9rem; margin-bottom: 0.9rem;
+}
+.contact-form input:focus, .contact-form textarea:focus, .admin-input:focus, .admin-select:focus {
+  outline: none; border-color: var(--primary-gold);
+}
+.contact-form textarea { min-height: 110px; resize: vertical; }
 
-  /* Sticky gallery categories */
-  #galleryHeader.sticky-cats {
-    position: sticky;
-    top: 5.5rem;
-    z-index: 30;
-    background: rgb(var(--brand-dark) / 0.92);
-    backdrop-filter: blur(10px);
-    margin-left: -0.25rem;
-    margin-right: -0.25rem;
-    padding-left: 0.25rem;
-    padding-right: 0.25rem;
-  }
+/* Footer */
+footer {
+  border-top: 1px solid var(--border-color); padding: 2.5rem 0 5rem;
+  text-align: center; color: var(--text-dim); font-size: 0.75rem;
+}
+footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6vw, 3.5rem); color: var(--text-muted); opacity: 0.35; margin-bottom: 1rem; }
 
-  /* Section fade-in on scroll — fluid */
-  .ux-reveal {
-    opacity: 0;
-    transform: translateY(clamp(16px, 3vw, 28px));
-    filter: blur(2px);
-    transition:
-      opacity var(--duration-slow) var(--ease-out-expo),
-      transform var(--duration-slow) var(--ease-out-expo),
-      filter var(--duration-med) var(--ease-out-soft);
-  }
-  .ux-reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .ux-reveal { opacity: 1; transform: none; filter: none; transition: none; }
-  }
+/* Lightbox */
+.modal-overlay {
+  position: fixed; inset: 0; z-index: 1000; background: rgba(0,0,0,0.88);
+  display: flex; align-items: center; justify-content: center; padding: 1.5rem;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s ease;
+}
+.modal-overlay.open { opacity: 1; pointer-events: auto; }
+#lightboxImg { max-height: 78vh; max-width: 100%; object-fit: contain; border-radius: 8px; }
+.lb-nav {
+  position: absolute; top: 50%; transform: translateY(-50%); width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--border-color); background: rgba(0,0,0,0.5);
+  color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center;
+}
+#lightboxPrev { left: 1rem; } #lightboxNext { right: 1rem; }
+#lightboxClose {
+  position: absolute; top: 1.25rem; right: 1.25rem; width: 44px; height: 44px;
+  border-radius: 50%; border: 1px solid var(--border-color); background: rgba(0,0,0,0.5);
+  color: #fff; font-size: 1.5rem; cursor: pointer;
+}
 
-  /* Mobile menu stagger */
-  #mobileMenu .mobile-nav-link {
-    opacity: 0;
-    transform: translateY(12px);
-    transition: opacity 0.4s ease, transform 0.4s ease, color 0.2s ease;
-  }
-  #mobileMenu.is-open .mobile-nav-link {
-    opacity: 1;
-    transform: none;
-  }
-  #mobileMenu.is-open .mobile-nav-link:nth-child(1) { transition-delay: 0.05s; }
-  #mobileMenu.is-open .mobile-nav-link:nth-child(2) { transition-delay: 0.1s; }
-  #mobileMenu.is-open .mobile-nav-link:nth-child(3) { transition-delay: 0.15s; }
-  #mobileMenu.is-open .mobile-nav-link:nth-child(4) { transition-delay: 0.2s; }
-  @media (prefers-reduced-motion: reduce) {
-    #mobileMenu .mobile-nav-link { opacity: 1; transform: none; transition: color 0.2s ease; }
-  }
+/* FABs */
+.fab {
+  position: fixed; z-index: 850; width: 46px; height: 46px; border-radius: 50%;
+  border: 1px solid var(--border-color); background: color-mix(in srgb, var(--bg-dark) 90%, transparent);
+  backdrop-filter: blur(12px); color: var(--text-muted); cursor: pointer;
+  display: flex; align-items: center; justify-content: center; transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+.fab:hover { color: var(--primary-gold); border-color: var(--border-gold); transform: scale(1.06); }
+#scrollTopBtn { bottom: 1.5rem; left: 1.5rem; opacity: 0; pointer-events: none; }
+#scrollTopBtn.show { opacity: 1; pointer-events: auto; }
+#adminBtn { bottom: 1.5rem; right: 1.5rem; }
 
-  /* FAB hover scale */
-  .ux-fab-scale { transition: transform 0.25s ease, opacity 0.3s ease, color 0.2s ease, border-color 0.2s ease; }
-  .ux-fab-scale:hover { transform: scale(1.08); }
-
-  /* Copy toast */
-  #uxToast {
-    position: fixed;
-    bottom: 5.5rem;
-    left: 50%;
-    transform: translateX(-50%) translateY(12px);
-    z-index: 60;
-    padding: 0.6rem 1.1rem;
-    border-radius: 999px;
-    background: rgb(var(--brand-surface));
-    border: 1px solid rgb(var(--brand-border));
-    color: rgb(var(--brand-light));
-    font-size: 0.7rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.25s ease, transform 0.25s ease;
-    box-shadow: 0 12px 40px rgba(0,0,0,0.35);
-  }
-  #uxToast.show {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0);
-  }
-
-  /* Contact form validation */
-  .admin-input.ux-invalid {
-    border-color: #f87171 !important;
-  }
-
-  /* Testimonials marquee — auto-scroll + manual horizontal scroll */
-  .marquee-wrap {
-    position: relative;
-    overflow-x: auto;
-    overflow-y: hidden;
-    -webkit-overflow-scrolling: touch;
-    scroll-behavior: smooth;
-    cursor: grab;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-    mask-image: linear-gradient(90deg, transparent 0, #000 6%, #000 94%, transparent 100%);
-  }
-  .marquee-wrap:active { cursor: grabbing; }
-  .marquee-wrap.is-interacting .marquee-track,
-  .marquee-wrap:hover .marquee-track {
-    animation-play-state: paused;
-  }
-  .marquee-track {
-    display: flex;
-    width: max-content;
-    gap: 2rem;
-    padding: 0 1.5rem;
-    animation: marqueeScroll var(--marquee-duration, 40s) linear infinite;
-  }
-  .marquee-card {
-    flex: 0 0 auto;
-    width: 320px;
-  }
-  .marquee-wrap.snap-x {
-    scroll-snap-type: x mandatory;
-  }
-  .marquee-wrap.snap-x .marquee-card {
-    scroll-snap-align: start;
-  }
-  .marquee-wrap.hide-scrollbar {
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-  }
-  .marquee-wrap.hide-scrollbar::-webkit-scrollbar { display: none; height: 0; }
-  @keyframes marqueeScroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
-  /* Thin theme-matched scrollbar (when not hidden) */
-  .marquee-wrap:not(.hide-scrollbar)::-webkit-scrollbar { height: 4px; }
-  .marquee-wrap:not(.hide-scrollbar)::-webkit-scrollbar-track { background: transparent; }
-  .marquee-wrap:not(.hide-scrollbar)::-webkit-scrollbar-thumb {
-    background: rgb(var(--brand-border));
-    border-radius: 4px;
-  }
-  .marquee-wrap:not(.hide-scrollbar)::-webkit-scrollbar-thumb:hover {
-    background: rgb(var(--brand-gold));
-  }
-
-  /* Vertical static testimonials — constrained to viewport on mobile */
-  .marquee-wrap.is-vertical {
-    overflow: visible;
-    overflow-x: visible;
-    cursor: default;
-    -webkit-mask-image: none;
-    mask-image: none;
-    scroll-behavior: auto;
-    width: 100%;
-    max-width: 100%;
-  }
-  .marquee-wrap.is-vertical:active { cursor: default; }
-  .testimonials-vertical {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.5rem;
-    padding: 0 1.5rem;
-    width: 100%;
-    max-width: 80rem;
-    margin: 0 auto;
-    box-sizing: border-box;
-  }
-  @media (min-width: 768px) {
-    .testimonials-vertical { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
-  .testimonials-vertical .marquee-card {
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    flex: none;
-    box-sizing: border-box;
-  }
-  .testimonials-vertical .marquee-card p {
-    overflow-wrap: anywhere;
-    word-break: break-word;
-  }
-
-  /* Drag hint */
-  #testimonialsDragHint {
-    position: absolute;
-    left: 50%;
-    bottom: 0.75rem;
-    transform: translateX(-50%);
-    z-index: 5;
-    pointer-events: none;
-    font-size: 0.65rem;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: rgb(var(--brand-muted));
-    background: rgb(var(--brand-dark) / 0.75);
-    border: 1px solid rgb(var(--brand-border));
-    border-radius: 999px;
-    padding: 0.35rem 0.85rem;
-    opacity: 0;
-    transition: opacity 0.4s ease;
-  }
-  #testimonialsDragHint.show { opacity: 1; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .marquee-track { animation: none !important; }
-  }
-
-  /* Admin & Lightbox Overlays — intentionally always dark, regardless of site theme */
-  .modal-overlay {
-    display: none;
-    position: fixed; inset: 0; background: rgba(0,0,0,0.9);
-    z-index: 100; align-items: center; justify-content: center;
-    backdrop-filter: blur(8px);
-    opacity: 0; transition: opacity 0.3s ease;
-  }
-  .modal-overlay.open { display: flex; opacity: 1; }
-  
-  #adminPanel {
-    background: #111; border: 1px solid #2a2a2a; border-radius: 16px;
-    width: 95%; max-width: 680px; max-height: 90vh; overflow-y: auto;
-    padding: 2rem; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
-  }
-  .admin-input {
-    width: 100%; background: #0a0a0a; border: 1px solid #2a2a2a;
-    color: #e5e5e5; padding: 0.625rem 0.875rem; border-radius: 8px;
-    font-size: 0.875rem; transition: border-color 0.2s;
-  }
-  .admin-input:focus { outline: none; border-color: #D4AF37; }
-  .admin-btn {
-    background: #D4AF37; color: #0a0a0a; font-weight: 600;
-    padding: 0.625rem 1.25rem; border-radius: 8px; font-size: 0.875rem;
-    transition: opacity 0.2s, transform 0.1s;
-  }
-  .admin-btn:hover { opacity: 0.9; transform: translateY(-1px); }
-  .admin-btn-secondary {
-    background: transparent; border: 1px solid #2a2a2a; color: #e5e5e5;
-    padding: 0.625rem 1rem; border-radius: 8px; font-size: 0.875rem;
-    transition: border-color 0.2s, color 0.2s;
-  }
-  .admin-btn-secondary:hover { border-color: #D4AF37; color: #D4AF37; }
-  .admin-move-btn { background: transparent; border: 1px solid #2a2a2a; color: #8a8a8a; width: 26px; height: 26px; border-radius: 6px; display: flex; align-items: center; justify-content: center; transition: border-color 0.2s, color 0.2s; }
-  .admin-move-btn:hover:not(:disabled) { border-color: #D4AF37; color: #D4AF37; }
-  .admin-move-btn:disabled { opacity: 0.3; cursor: not-allowed; }
-
-  /* Skeleton loader animation */
-  @keyframes pulseSubtle {
-    0%, 100% { opacity: 0.4; }
-    50% { opacity: 0.8; }
-  }
-  .skeleton {
-    background: rgb(var(--brand-surface));
-    animation: pulseSubtle 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  }
+/* Admin modal */
+#adminOverlay { z-index: 1100; align-items: flex-start; padding-top: 3vh; overflow-y: auto; }
+#adminPanel {
+  width: min(720px, 96vw); max-height: 92vh; overflow: hidden; display: flex; flex-direction: column;
+  background: var(--bg-dark); border: 1px solid var(--border-color); border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+#adminPanel .admin-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 1rem 1.25rem; border-bottom: 1px solid var(--border-color);
+}
+#adminPanel .admin-body { overflow-y: auto; padding: 1.25rem; flex: 1; }
+.admin-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; margin-bottom: 1.25rem; }
+.admin-tab {
+  padding: 0.4rem 0.75rem; border-radius: 9999px; border: 1px solid var(--border-color);
+  background: transparent; color: var(--text-muted); font-size: 0.7rem; text-transform: uppercase;
+  letter-spacing: 0.08em; cursor: pointer; font-family: inherit;
+}
+.admin-tab.active { border-color: var(--primary-gold); color: var(--primary-gold); }
+.admin-section { display: none; }
+.admin-section.active { display: block; }
+.admin-section h4 { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 0.75rem; color: var(--primary-gold); }
+.admin-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+@media (max-width: 600px) { .admin-row { grid-template-columns: 1fr; } }
+.admin-actions { display: flex; gap: 0.75rem; padding: 1rem 1.25rem; border-top: 1px solid var(--border-color); }
+.admin-btn {
+  flex: 1; padding: 0.75rem; border-radius: var(--radius-sm); border: none; cursor: pointer;
+  background: linear-gradient(135deg, #e5c158, #a68128); color: #0a0c10; font-weight: 600;
+  font-family: inherit; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem;
+}
+.admin-btn-secondary {
+  padding: 0.75rem 1rem; border-radius: var(--radius-sm); cursor: pointer;
+  background: transparent; border: 1px solid var(--border-color); color: var(--text-muted);
+  font-family: inherit; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em;
+}
+.admin-btn-secondary:hover { border-color: var(--primary-gold); color: var(--primary-gold); }
+.list-block { border: 1px solid var(--border-color); border-radius: var(--radius-sm); padding: 0.75rem; margin-bottom: 0.75rem; }
+.list-block .mini-row { display: flex; gap: 0.4rem; margin-bottom: 0.4rem; }
+.ux-flag { display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.4rem; }
+#uxToast {
+  position: fixed; bottom: 5rem; left: 50%; transform: translateX(-50%) translateY(12px);
+  background: var(--bg-card); border: 1px solid var(--border-gold); color: var(--text-main);
+  padding: 0.6rem 1.1rem; border-radius: 9999px; font-size: 0.8rem; opacity: 0;
+  pointer-events: none; transition: all 0.25s ease; z-index: 1200;
+}
+#uxToast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+.hidden { display: none !important; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.35); border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: var(--primary-gold); }
 </style>
 </head>
-<body class="antialiased bg-brand-dark text-brand-light selection:bg-brand-gold selection:text-brand-dark" data-ux-build="2026-08-13-v2">
+<body data-build="photo-portfolio-ui-2026-08-16">
 
-<!-- Nav -->
-<nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 w-[95%] md:w-[90%] max-w-7xl">
-  <div id="navPill" class="flex items-center justify-between px-6 py-3.5 bg-brand-dark/85 backdrop-blur-md border border-brand-border rounded-full shadow-xl shadow-black/40">
-    <div class="flex items-center gap-3">
-      <a href="#" id="txt-navTitle" class="text-xs uppercase tracking-[0.25em] font-bold text-brand-gold">KAAD PORTRAITS</a>
-    </div>
-    <div class="hidden md:flex items-center gap-8" id="desktopNavLinks">
-      <a href="#home" data-section="home" class="nav-link-underline scroll-nav-link text-xs uppercase tracking-widest font-medium text-brand-light">Home</a>
-      <a href="#gallery" data-section="gallery" class="nav-link-underline scroll-nav-link text-xs uppercase tracking-widest font-medium text-brand-muted hover:text-brand-light">Gallery</a>
-      <a href="#about" data-section="about" class="nav-link-underline scroll-nav-link text-xs uppercase tracking-widest font-medium text-brand-muted hover:text-brand-light">About</a>
-      <a href="#contact" data-section="contact" class="nav-link-underline scroll-nav-link text-xs uppercase tracking-widest font-medium text-brand-muted hover:text-brand-light">Contact</a>
-    </div>
-    <div class="flex items-center gap-4">
-      <div class="hidden sm:flex items-center gap-2 px-3 py-1 rounded-full bg-brand-surface border border-brand-border">
-        <span class="text-[10px] uppercase tracking-widest text-brand-muted">Live</span>
-        <div class="w-2 h-2 rounded-full bg-brand-gold animate-pulse"></div>
+<!-- NAV -->
+<header id="siteNav">
+  <div class="container nav-inner">
+    <a href="#home" class="nav-brand">
+      <div class="nav-logo" id="navLogoLetter">K</div>
+      <div>
+        <div class="brand-title" id="txt-navTitle" style="font-size:1.15rem;line-height:1.15">KAAD Portraits</div>
+        <div id="txt-navTagline" style="font-size:0.65rem;color:var(--primary-gold);letter-spacing:0.12em;text-transform:uppercase">Photography</div>
       </div>
-      <button id="themeToggleBtn" title="Toggle light/dark" aria-label="Toggle light/dark theme" class="text-brand-muted hover:text-brand-gold transition-colors p-1.5">
-        <svg id="themeIconMoon" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8.5 8.5 0 1110.5 4a7 7 0 009.5 10.5z"/></svg>
-        <svg id="themeIconSun" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" class="hidden"><circle cx="12" cy="12" r="4.5"/><path d="M12 2.5v2.5M12 19v2.5M4.2 4.2l1.8 1.8M18 18l1.8 1.8M2.5 12H5M19 12h2.5M4.2 19.8L6 18M18 6l1.8-1.8"/></svg>
-      </button>
-      <!-- Mobile menu button -->
-      <button id="mobileMenuBtn" class="md:hidden text-brand-light p-1.5 focus:outline-none" aria-label="Toggle menu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-</nav>
-
-<!-- Mobile Menu Drawer -->
-<div id="mobileMenu" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-xl flex flex-col justify-center px-8 transition-all duration-300 opacity-0 pointer-events-none">
-  <button id="mobileMenuClose" class="absolute top-8 right-8 text-brand-muted hover:text-brand-light text-3xl focus:outline-none">×</button>
-  <div class="flex flex-col gap-8 text-center">
-    <a href="#home" class="mobile-nav-link text-2xl font-serif tracking-wide text-brand-light hover:text-brand-gold transition-colors">Home</a>
-    <a href="#gallery" class="mobile-nav-link text-2xl font-serif tracking-wide text-brand-light hover:text-brand-gold transition-colors">Gallery</a>
-    <a href="#about" class="mobile-nav-link text-2xl font-serif tracking-wide text-brand-light hover:text-brand-gold transition-colors">About</a>
-    <a href="#contact" class="mobile-nav-link text-2xl font-serif tracking-wide text-brand-light hover:text-brand-gold transition-colors">Contact</a>
-  </div>
-</div>
-
-<!-- SVG filter for hero slow wave (referenced by #heroImg.hero-wave) -->
-<svg class="absolute w-0 h-0 overflow-hidden" aria-hidden="true" focusable="false">
-  <defs>
-    <filter id="heroWaveFilter" x="-5%" y="-5%" width="110%" height="110%" color-interpolation-filters="sRGB">
-      <feTurbulence type="fractalNoise" baseFrequency="0.009 0.018" numOctaves="2" seed="3" result="noise">
-        <animate attributeName="baseFrequency"
-          values="0.008 0.014;0.012 0.022;0.007 0.016;0.01 0.02;0.008 0.014"
-          dur="14s"
-          repeatCount="indefinite" />
-      </feTurbulence>
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" result="warp">
-        <!-- Ease in on load: scale rises, then holds a gentle continuous wave -->
-        <animate attributeName="scale"
-          values="0;14;10;12;10"
-          keyTimes="0;0.12;0.35;0.7;1"
-          dur="16s"
-          fill="freeze"
-          repeatCount="indefinite" />
-      </feDisplacementMap>
-    </filter>
-  </defs>
-</svg>
-
-<!-- Hero -->
-<header id="home" class="hero-fluid relative h-[85vh] md:h-[92vh] flex flex-col justify-end px-wrap pb-16 overflow-hidden">
-  <div class="absolute inset-0 z-0">
-    <img id="heroImg" class="w-full h-full object-cover bg-zinc-900 opacity-90 transition-opacity duration-1000" src="" alt="Hero photo" />
-    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-black/40"></div>
-    <div class="hero-blend" aria-hidden="true"></div>
-  </div>
-  <div class="relative z-10 max-w-7xl mx-auto w-full animate-slide-up">
-    <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4">
-      <h1 id="txt-heroTitle" class="text-xs uppercase tracking-[0.25em] font-medium text-brand-light">PORTFOLIO</h1>
-      <span id="txt-heroSubtitle" class="text-xs uppercase tracking-[0.25em] font-medium text-brand-muted">VISUAL WORK</span>
+    </a>
+    <nav class="nav-links" id="desktopNavLinks">
+      <a href="#home">Home</a>
+      <a href="#album">Album</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#services">Services</a>
+      <a href="#terms">Terms</a>
+      <a href="#about">About</a>
+      <a href="#testimonials">Stories</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggleBtn" title="Toggle theme" aria-label="Toggle light/dark">◐</button>
+      <button class="icon-btn" id="mobileMenuBtn" aria-label="Menu">☰</button>
     </div>
   </div>
 </header>
 
-<main id="gallery">
-  <!-- Gallery -->
-  <section id="gallerySection" class="fluid-section fluid-blend-top px-wrap ux-reveal">
-    <div class="max-w-7xl mx-auto">
-      <div id="galleryHeader" class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 md:mb-20 gap-8 border-b border-brand-border pb-8">
-        <h2 id="txt-galleryHeading" class="text-xs uppercase tracking-[0.25em] font-medium text-brand-gold">CURATED WORK</h2>
-        <div id="catNav" class="flex flex-wrap gap-3 md:gap-6"></div>
-      </div>
-      <div id="galleryGrid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-y-12 gap-x-8"></div>
-      <p id="galleryEmpty" class="hidden text-sm text-brand-muted py-12 text-center">No photos yet in this category.</p>
-    </div>
-  </section>
+<div id="mobileMenu">
+  <button class="icon-btn" id="mobileMenuClose" style="position:absolute;top:1.25rem;right:var(--space-page)">×</button>
+  <a href="#home" class="mobile-nav-link">Home</a>
+  <a href="#album" class="mobile-nav-link">Album</a>
+  <a href="#gallery" class="mobile-nav-link">Gallery</a>
+  <a href="#services" class="mobile-nav-link">Services</a>
+  <a href="#terms" class="mobile-nav-link">Terms</a>
+  <a href="#about" class="mobile-nav-link">About</a>
+  <a href="#testimonials" class="mobile-nav-link">Stories</a>
+  <a href="#contact" class="mobile-nav-link">Contact</a>
+</div>
 
-  <!-- About -->
-  <section id="about" class="fluid-section px-wrap border-t border-brand-border bg-brand-surface/30 ux-reveal">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
-      <div class="md:col-span-8">
-        <h3 id="txt-aboutHeading" class="text-4xl md:text-6xl lg:text-7xl font-serif leading-[1.1] tracking-tight uppercase">
-          the quiet <span class="italic lowercase">search</span> for<br>
-          quiet <span class="italic lowercase">light</span>
-        </h3>
-      </div>
-      <div class="md:col-span-4 flex flex-col justify-end">
-        <p id="txt-aboutText" class="text-sm md:text-base leading-relaxed text-brand-muted">
-          A visual storyteller working across editorial, landscape, and portrait work — frames that balance mood with precision.
-        </p>
+<main>
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-bg"><img id="heroImg" src="" alt="" /></div>
+    <div class="container hero-content">
+      <p class="section-label" id="txt-heroEyebrow">Portfolio</p>
+      <h1 id="txt-heroTitle">Capturing Unforgettable Moments</h1>
+      <p id="txt-heroBio">Visual storytelling across editorial, landscape, and portrait work.</p>
+      <div class="hero-actions">
+        <a href="#gallery" class="btn btn-primary">View gallery</a>
+        <a href="#contact" class="btn btn-ghost">Book a session</a>
       </div>
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="fluid-section border-t border-brand-border overflow-hidden ux-reveal">
-    <div class="max-w-7xl mx-auto px-wrap">
-      <h2 class="text-xs uppercase tracking-[0.25em] font-medium text-brand-gold mb-12 md:mb-16">What People Say</h2>
-    </div>
-    <div id="testimonialsMarqueeWrap" class="marquee-wrap relative">
-      <div id="testimonialsGrid" class="marquee-track"></div>
-      <div id="testimonialsDragHint" aria-hidden="true">Drag to explore</div>
-    </div>
-    <div class="max-w-7xl mx-auto px-wrap">
-      <div id="testimonialsSkeleton" class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="border border-brand-border rounded-xl p-6 h-40 skeleton"></div>
-        <div class="border border-brand-border rounded-xl p-6 h-40 skeleton"></div>
-        <div class="border border-brand-border rounded-xl p-6 h-40 skeleton"></div>
+  <!-- ALBUM (featured photo + link) -->
+  <section id="album" class="section">
+    <div class="container">
+      <p class="section-label">Featured album</p>
+      <h2 class="section-title" id="txt-albumTitle">Client portfolio album</h2>
+      <p class="section-sub" id="txt-albumSub">Open the featured frame to view the full linked gallery.</p>
+      <div class="album-card glass" style="padding:1.25rem">
+        <div class="album-photo">
+          <img id="albumFeatureImg" src="" alt="Featured album" />
+          <a id="albumFeatureLink" class="overlay-link" href="#" target="_blank" rel="noopener noreferrer">
+            <span class="open-badge">Open album ↗</span>
+          </a>
+        </div>
+        <div>
+          <h3 id="txt-albumCardTitle" class="brand-title" style="font-size:1.5rem;margin-bottom:0.75rem">Official portfolio album</h3>
+          <p id="txt-albumCardText" style="color:var(--text-muted);margin-bottom:1.25rem">High-resolution selections delivered via shared album link.</p>
+          <a id="albumCta" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open full album</a>
+        </div>
       </div>
-      <p id="testimonialsEmpty" class="hidden text-sm text-brand-muted py-4">No testimonials yet.</p>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label">Gallery</p>
+      <h2 class="section-title" id="txt-galleryHeading">Curated work</h2>
+      <div class="cat-bar" id="categoryNav"></div>
+      <div class="gallery-grid" id="galleryGrid"></div>
+      <p id="galleryEmpty" class="hidden">No photographs in this collection yet.</p>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label">Services</p>
+      <h2 class="section-title">What I offer</h2>
+      <p class="section-sub">Session packages — fully configurable in admin.</p>
+      <div class="services-grid" id="servicesGrid"></div>
+    </div>
+  </section>
+
+  <!-- TERMS -->
+  <section id="terms" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label">Terms</p>
+      <h2 class="section-title">Working together</h2>
+      <div class="terms-list" id="termsList"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container about-grid">
+      <div>
+        <p class="section-label">About</p>
+        <h2 class="section-title" id="txt-aboutHeading">The quiet search for quiet light</h2>
+        <p id="txt-aboutText" style="color:var(--text-muted)">A visual storyteller working across editorial, landscape, and portrait work.</p>
+      </div>
+      <div class="glass" style="padding:1.5rem">
+        <p style="color:var(--text-muted);font-size:0.9rem" id="txt-aboutSide">Every frame is tuned for mood, precision, and lasting delivery through shared albums.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container">
+      <p class="section-label">Client stories</p>
+      <h2 class="section-title">Kind words</h2>
+      <div id="testimonialsRoot"></div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section" style="border-top:1px solid var(--border-color)">
+    <div class="container contact-grid">
+      <div>
+        <p class="section-label">Contact</p>
+        <h2 class="section-title">Let's create</h2>
+        <div class="contact-meta" style="margin-top:1rem">
+          <button type="button" id="copyEmailBtn"><span>✉</span> <span id="dispEmail">email</span></button>
+          <button type="button" id="copyPhoneBtn"><span>☎</span> <span id="dispPhone">phone</span></button>
+          <a id="linkWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="hidden"><span>💬</span> WhatsApp</a>
+          <a id="linkInstagram" href="#" target="_blank" rel="noopener noreferrer" class="hidden"><span>▣</span> Instagram</a>
+          <a id="linkFacebook" href="#" target="_blank" rel="noopener noreferrer" class="hidden"><span>f</span> Facebook</a>
+          <p id="dispHours" style="margin-top:0.75rem;font-size:0.85rem;color:var(--text-dim)"></p>
+          <p id="dispAddress" style="font-size:0.85rem;color:var(--text-dim)"></p>
+        </div>
+      </div>
+      <form class="glass contact-form" id="contactForm" style="padding:1.5rem" onsubmit="return false;">
+        <label>Name</label>
+        <input id="cfName" type="text" placeholder="Your name" required />
+        <label>Email</label>
+        <input id="cfEmail" type="email" placeholder="you@email.com" required />
+        <label>Service interest</label>
+        <select id="cfService"><option value="">Select…</option></select>
+        <label>Message</label>
+        <textarea id="cfMessage" placeholder="Tell me about your session"></textarea>
+        <button type="submit" class="btn btn-primary" id="cfSubmit">Send enquiry</button>
+      </form>
     </div>
   </section>
 </main>
 
-<!-- Footer / Contact -->
-<footer id="contact" class="px-wrap pb-16 border-t border-brand-border fluid-section ux-reveal">
-  <div class="max-w-7xl mx-auto">
-    <h2 id="txt-footerHeading" class="text-5xl md:text-8xl lg:text-9xl font-serif uppercase tracking-tighter mb-16 md:mb-24 text-brand-light/90">PORTFOLIO</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-12 py-16 md:py-20 border-b border-brand-border">
-      <div class="md:col-span-4 space-y-4">
-        <span id="txt-contactLabel" class="text-[10px] uppercase tracking-[0.2em] text-brand-gold block">Contact</span>
-
-        <div class="flex items-center gap-2 group/copy">
-          <a id="contactEmail" href="#" class="flex items-center gap-2.5 text-sm hover:text-brand-gold transition-colors">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" class="shrink-0"><rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="M3 6.5l9 6.5 9-6.5"/></svg>
-            <span id="contactEmailText">Loading…</span>
-          </a>
-          <button id="copyEmailBtn" type="button" class="hidden text-brand-muted hover:text-brand-gold transition-colors p-1" title="Copy email" aria-label="Copy email">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/></svg>
-          </button>
-        </div>
-        <div class="flex items-center gap-2 group/copy">
-          <a id="contactPhone" href="#" class="flex items-center gap-2.5 text-sm hover:text-brand-gold transition-colors">
-            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.8" class="shrink-0"><path d="M4 3.5h4l2 5-2.5 1.5a12 12 0 006 6l1.5-2.5 5 2v4a2 2 0 01-2 2C10.5 21.5 2.5 13.5 2.5 5.5a2 2 0 011.5-2z"/></svg>
-            <span id="contactPhoneText">Loading…</span>
-          </a>
-          <button id="copyPhoneBtn" type="button" class="hidden text-brand-muted hover:text-brand-gold transition-colors p-1" title="Copy phone number" aria-label="Copy phone number">
-            <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 00-2-2H6a2 2 0 00-2 2v8a2 2 0 002 2h2"/></svg>
-          </button>
-        </div>
-
-        <div class="flex items-center gap-3 pt-2">
-          <a id="contactInstagram" href="#" target="_blank" rel="noopener noreferrer" class="hidden w-9 h-9 rounded-full border border-brand-border items-center justify-center text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10 transition-colors" title="Instagram">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-          </a>
-          <a id="contactWhatsapp" href="#" target="_blank" rel="noopener noreferrer" class="hidden w-9 h-9 rounded-full border border-brand-border items-center justify-center text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10 transition-colors" title="WhatsApp">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 12a8 8 0 10-14.6 4.6L4 21l4.5-1.4A8 8 0 0020 12z"/><path d="M8.7 8.7c-.2.6-.1 1.5.6 2.7.9 1.5 2.3 2.7 3.9 3.2.9.3 1.5.2 2-.2.4-.3.6-.7.6-1"/></svg>
-          </a>
-          <a id="contactFacebook" href="#" target="_blank" rel="noopener noreferrer" class="hidden w-9 h-9 rounded-full border border-brand-border items-center justify-center text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10 transition-colors" title="Facebook">
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 8.5h-2c-.8 0-1.5.7-1.5 1.5v2h3.3l-.5 3H11.5v7.5H9V15H7v-3h2v-2.3C9 7.4 10.6 5.8 13 5.8h2v2.7z"/></svg>
-          </a>
-        </div>
-      </div>
-
-      <div class="md:col-span-6 md:col-start-7 space-y-4">
-        <div id="contactFormMsg" class="hidden text-xs uppercase tracking-widest text-brand-gold"></div>
-        <form id="contactForm" class="space-y-3" novalidate>
-          <input type="text" id="cfName" required class="admin-input" placeholder="Your name" />
-          <input type="email" id="cfEmail" required class="admin-input" placeholder="Your email" />
-          <textarea id="cfMessage" required rows="3" class="admin-input font-sans" placeholder="Your message"></textarea>
-          <button type="submit" class="admin-btn text-xs uppercase tracking-widest">Send Message</button>
-          <p class="text-[10px] text-brand-muted">Opens your email app with this pre-filled, addressed to the contact email above.</p>
-        </form>
-      </div>
-    </div>
-    <div class="flex flex-col md:flex-row justify-between items-center py-8 text-[10px] uppercase tracking-widest text-brand-muted gap-4">
-      <span id="txt-footerCopyright">© 2026 Portfolio</span>
-      <span>All Rights Reserved</span>
-    </div>
+<footer>
+  <div class="container">
+    <div class="foot-title" id="txt-footerHeading">PORTFOLIO</div>
+    <p id="txt-footerCopyright">© 2026 Portfolio</p>
   </div>
 </footer>
 
-<!-- Fullscreen Lightbox Modal -->
-<div id="lightboxModal" class="modal-overlay flex-col p-4 md:p-8">
-  <button id="lightboxClose" class="absolute top-6 right-6 text-brand-muted hover:text-brand-light text-3xl z-10 w-12 h-12 flex items-center justify-center bg-black/50 rounded-full border border-brand-border transition-colors">×</button>
-  <span id="lightboxCounter" class="absolute top-8 left-1/2 -translate-x-1/2 text-[11px] uppercase tracking-[0.2em] text-brand-muted z-10"></span>
-  <button id="lightboxPrev" class="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 text-brand-muted hover:text-brand-light z-10 w-11 h-11 md:w-12 md:h-12 flex items-center justify-center bg-black/50 rounded-full border border-brand-border transition-colors" aria-label="Previous photo">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
-  </button>
-  <button id="lightboxNext" class="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 text-brand-muted hover:text-brand-light z-10 w-11 h-11 md:w-12 md:h-12 flex items-center justify-center bg-black/50 rounded-full border border-brand-border transition-colors" aria-label="Next photo">
-    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
-  </button>
-  <div class="relative max-w-5xl max-h-[82vh] w-full h-full flex flex-col items-center justify-center">
-    <img id="lightboxImg" class="max-h-[75vh] max-w-full object-contain rounded-lg shadow-2xl" src="" alt="Lightbox view" />
-    <p id="lightboxCaption" class="mt-4 text-xs uppercase tracking-[0.2em] text-brand-muted text-center"></p>
-    <a id="lightboxInstagram" href="#" target="_blank" rel="noopener noreferrer" class="hidden mt-3 w-9 h-9 rounded-full border border-brand-border items-center justify-center text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10 transition-colors">
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-    </a>
+<!-- Lightbox -->
+<div id="lightboxModal" class="modal-overlay">
+  <button id="lightboxClose" aria-label="Close">×</button>
+  <button id="lightboxPrev" class="lb-nav" aria-label="Previous">‹</button>
+  <button id="lightboxNext" class="lb-nav" aria-label="Next">›</button>
+  <div style="text-align:center;max-width:100%">
+    <img id="lightboxImg" src="" alt="" />
+    <p id="lightboxCaption" style="margin-top:0.75rem;font-size:0.75rem;letter-spacing:0.12em;text-transform:uppercase;color:#9aa4b5"></p>
   </div>
 </div>
 
-<!-- Scroll to top -->
-<button id="scrollTopBtn" title="Back to top" aria-label="Back to top"
-  class="ux-fab-scale fixed bottom-6 left-6 z-40 w-11 h-11 rounded-full bg-brand-dark/90 border border-brand-border
-         text-brand-muted hover:text-brand-gold hover:border-brand-gold transition-all duration-300
-         flex items-center justify-center shadow-2xl backdrop-blur-md opacity-0 pointer-events-none translate-y-2">
-  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
-</button>
-
-<!-- Tiny Admin button (bottom-right) -->
-<button id="adminBtn" title="Admin Panel"
-  class="ux-fab-scale fixed bottom-6 right-6 z-40 w-12 h-12 rounded-full bg-brand-dark/90 border border-brand-border
-         text-brand-muted hover:text-brand-gold hover:border-brand-gold transition-all duration-300
-         flex items-center justify-center text-xs shadow-2xl backdrop-blur-md">
-  ✎
-</button>
-
-<!-- UX toast (copy / form feedback) -->
+<button id="scrollTopBtn" class="fab" title="Back to top" aria-label="Back to top">↑</button>
+<button id="adminBtn" class="fab" title="Admin">✎</button>
 <div id="uxToast" role="status" aria-live="polite"></div>
 
-<!-- Admin Overlay / Modal -->
+<!-- Admin -->
 <div id="adminOverlay" class="modal-overlay">
   <div id="adminPanel">
-    <div class="flex items-center justify-between mb-6 pb-4 border-b border-brand-border">
-      <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-brand-gold"></div>
-        <h3 class="text-xs uppercase tracking-[0.2em] font-semibold text-brand-light">Admin Management</h3>
+    <div class="admin-head">
+      <div>
+        <div style="font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--primary-gold)">Admin</div>
+        <div style="font-size:0.95rem;font-family:var(--font-heading)">Site configuration</div>
       </div>
-      <button id="adminClose" class="text-brand-muted hover:text-brand-light text-2xl">×</button>
+      <button class="icon-btn" id="adminClose">×</button>
     </div>
-
-    <!-- Step 1: PIN -->
-    <div id="pinStep">
-      <p class="text-sm text-brand-muted mb-4">Enter your administrative PIN to access site configuration.</p>
-      <input id="pinInput" type="password" class="admin-input mb-4" placeholder="••••••••" autocomplete="off" />
-      <button id="pinSubmit" class="admin-btn w-full">Unlock Dashboard</button>
-      <p id="pinError" class="text-red-400 text-xs mt-3 hidden">Invalid PIN. Please try again.</p>
-    </div>
-
-    <!-- Step 2: Editor -->
-    <div id="editorStep" class="hidden space-y-6">
-      <p class="text-xs text-brand-muted">Modify site content, hero showcase, albums, contact details, and typography styles below.</p>
-
-      <!-- Hero -->
-      <div class="space-y-1.5">
-        <label class="text-[10px] uppercase tracking-widest text-brand-gold block">Hero Image URL</label>
-        <input id="editHero" type="url" class="admin-input" placeholder="https://..." />
+    <div class="admin-body">
+      <div id="pinStep">
+        <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem">Enter admin PIN to unlock.</p>
+        <input id="pinInput" class="admin-input" type="password" placeholder="••••" autocomplete="off" />
+        <button id="pinSubmit" class="admin-btn" style="width:100%">Unlock</button>
+        <p id="pinError" class="hidden" style="color:#f87171;font-size:0.8rem;margin-top:0.75rem">Invalid PIN</p>
       </div>
-
-      <!-- Contact -->
-      <div class="space-y-3 pt-2">
-        <p class="text-[10px] uppercase tracking-widest text-brand-gold">Contact Information</p>
-        <input id="editEmail" type="email" class="admin-input" placeholder="Email address" />
-        <input id="editPhone" type="text" class="admin-input" placeholder="Phone number" />
-        <input id="editInstagram" type="url" class="admin-input" placeholder="Instagram URL" />
-        <input id="editWhatsapp" type="text" class="admin-input" placeholder="WhatsApp number (e.g. 919876543210) or full wa.me link" />
-        <input id="editFacebook" type="url" class="admin-input" placeholder="Facebook page URL" />
-        <p class="text-[10px] text-brand-muted">Leave any field blank to hide that icon on the site. Any contact method left empty simply won't show.</p>
-      </div>
-
-      <!-- Testimonials -->
-      <div class="space-y-3 pt-2">
-        <div class="flex items-center justify-between">
-          <p class="text-[10px] uppercase tracking-widest text-brand-gold">Testimonials</p>
-          <button id="addTestimonial" class="admin-btn-secondary text-xs">+ Add Testimonial</button>
+      <div id="editorStep" class="hidden">
+        <div class="admin-tabs" id="adminTabs">
+          <button type="button" class="admin-tab active" data-tab="studio">Studio</button>
+          <button type="button" class="admin-tab" data-tab="album">Album</button>
+          <button type="button" class="admin-tab" data-tab="gallery">Gallery</button>
+          <button type="button" class="admin-tab" data-tab="services">Services</button>
+          <button type="button" class="admin-tab" data-tab="terms">Terms</button>
+          <button type="button" class="admin-tab" data-tab="about">About</button>
+          <button type="button" class="admin-tab" data-tab="testimonials">Stories</button>
+          <button type="button" class="admin-tab" data-tab="contact">Contact</button>
+          <button type="button" class="admin-tab" data-tab="ux">UX</button>
         </div>
-        <p class="text-[10px] text-brand-muted">Not tied to a specific photo. Instagram link can point to a post or your profile/home page.</p>
-        <div id="editTestimonials" class="space-y-4 max-h-64 overflow-y-auto pr-2"></div>
-      </div>
 
-      <!-- Categories / Albums -->
-      <div class="space-y-3 pt-2">
-        <div class="flex items-center justify-between">
-          <p class="text-[10px] uppercase tracking-widest text-brand-gold">Albums &amp; Categories</p>
-          <button id="addCategory" class="admin-btn-secondary text-xs">+ Add Album</button>
+        <div class="admin-section active" data-tab="studio">
+          <h4>Studio / Hero</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Studio name</label>
+          <input id="editStudioName" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Tagline</label>
+          <input id="editTagline" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Hero title</label>
+          <input id="editHeroTitle" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Hero bio</label>
+          <textarea id="editHeroBio" class="admin-input" rows="3"></textarea>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Hero image URL</label>
+          <input id="editHero" class="admin-input" type="url" placeholder="https://..." />
         </div>
-        <div id="editCategories" class="space-y-4 max-h-64 overflow-y-auto pr-2"></div>
-      </div>
 
-      <!-- Text & Layout -->
-      <div class="space-y-3 pt-2">
-        <p class="text-[10px] uppercase tracking-widest text-brand-gold">Typography &amp; Layout Styles</p>
-        <p class="text-[10px] text-brand-muted">Use *text* for bold, _text_ for italic, new line for line break.</p>
-        <div id="editStyles" class="space-y-3 max-h-64 overflow-y-auto pr-2"></div>
-      </div>
+        <div class="admin-section" data-tab="album">
+          <h4>Featured album</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Album title</label>
+          <input id="editAlbumTitle" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Album description</label>
+          <textarea id="editAlbumDesc" class="admin-input" rows="2"></textarea>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Featured photo URL (display)</label>
+          <input id="editAlbumPhoto" class="admin-input" type="url" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Album link (opens full album)</label>
+          <input id="editAlbumUrl" class="admin-input" type="url" placeholder="https://photos.app.goo.gl/..." />
+        </div>
 
-      <!-- UI / UX options (persisted with site data) -->
-      <div class="space-y-3 pt-2">
-        <p class="text-[10px] uppercase tracking-widest text-brand-gold">UI / UX options</p>
-        <p class="text-[10px] text-brand-muted">These settings are saved with the site and apply for every visitor. Defaults are on.</p>
-        <div class="space-y-2">
-          <label class="text-[10px] text-brand-muted block">Testimonials layout</label>
-          <select id="ux-testimonialsLayout" class="admin-input">
-            <option value="horizontal">Horizontal marquee + scroll</option>
-            <option value="vertical">Vertical static grid</option>
+        <div class="admin-section" data-tab="gallery">
+          <h4>Gallery albums</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addCategory">+ Add album</button>
+          </div>
+          <div id="editCategories"></div>
+        </div>
+
+        <div class="admin-section" data-tab="services">
+          <h4>Services</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addService">+ Add service</button>
+          </div>
+          <div id="editServices"></div>
+        </div>
+
+        <div class="admin-section" data-tab="terms">
+          <h4>Terms</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addTerm">+ Add term</button>
+          </div>
+          <div id="editTerms"></div>
+        </div>
+
+        <div class="admin-section" data-tab="about">
+          <h4>About</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">About heading</label>
+          <input id="editAboutHeading" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">About text</label>
+          <textarea id="editAboutText" class="admin-input" rows="4"></textarea>
+          <label style="font-size:0.7rem;color:var(--text-muted)">About side note</label>
+          <textarea id="editAboutSide" class="admin-input" rows="2"></textarea>
+        </div>
+
+        <div class="admin-section" data-tab="testimonials">
+          <h4>Testimonials</h4>
+          <div style="display:flex;justify-content:flex-end;margin-bottom:0.5rem">
+            <button type="button" class="admin-btn-secondary" id="addTestimonial">+ Add</button>
+          </div>
+          <div id="editTestimonials"></div>
+        </div>
+
+        <div class="admin-section" data-tab="contact">
+          <h4>Contact</h4>
+          <div class="admin-row">
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">Email</label><input id="editEmail" class="admin-input" type="email" /></div>
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">Phone</label><input id="editPhone" class="admin-input" /></div>
+          </div>
+          <div class="admin-row">
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">WhatsApp</label><input id="editWhatsapp" class="admin-input" placeholder="9198… or wa.me link" /></div>
+            <div><label style="font-size:0.7rem;color:var(--text-muted)">Instagram URL</label><input id="editInstagram" class="admin-input" type="url" /></div>
+          </div>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Facebook URL</label>
+          <input id="editFacebook" class="admin-input" type="url" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Address</label>
+          <input id="editAddress" class="admin-input" />
+          <label style="font-size:0.7rem;color:var(--text-muted)">Working hours</label>
+          <input id="editHours" class="admin-input" />
+        </div>
+
+        <div class="admin-section" data-tab="ux">
+          <h4>UI / UX</h4>
+          <label style="font-size:0.7rem;color:var(--text-muted)">Testimonials layout</label>
+          <select id="ux-testimonialsLayout" class="admin-select">
+            <option value="horizontal">Horizontal scroll</option>
+            <option value="vertical">Vertical grid</option>
           </select>
+          <div id="editUxFlags" style="margin-top:0.75rem"></div>
         </div>
-        <div id="editUxFlags" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs max-h-72 overflow-y-auto pr-1"></div>
       </div>
-
-      <!-- Analytics -->
-      <div class="space-y-3 pt-2">
-        <p class="text-[10px] uppercase tracking-widest text-brand-gold">Analytics (this device only)</p>
-        <p class="text-[10px] text-brand-muted">This site has no visitor-tracking backend, so these counts only reflect page loads on this specific browser/device — not real site-wide traffic. For real cross-visitor analytics, a small counter endpoint would need to be added to the Cloudflare Worker (see handshake notes).</p>
-        <div id="analyticsSummary" class="grid grid-cols-2 gap-3 text-xs"></div>
-        <button id="resetAnalyticsBtn" type="button" class="admin-btn-secondary text-xs">Reset local counters</button>
-      </div>
-
-      <div class="flex gap-3 pt-4 border-t border-brand-border">
-        <button id="saveBtn" class="admin-btn flex-1">Save &amp; Publish</button>
-        <button id="cancelBtn" class="admin-btn-secondary">Cancel</button>
-      </div>
-      <p id="saveMsg" class="text-xs mt-2 text-center hidden"></p>
     </div>
+    <div class="admin-actions hidden" id="adminFooterActions">
+      <button type="button" class="admin-btn" id="saveBtn">Save &amp; publish</button>
+      <button type="button" class="admin-btn-secondary" id="cancelBtn">Cancel</button>
+    </div>
+    <p id="saveMsg" class="hidden" style="text-align:center;font-size:0.8rem;padding:0 1rem 1rem"></p>
   </div>
 </div>
 
 <script>
-  // ============================================================
-  // CONFIG & STATE
-  // ============================================================
-  const WORKER_URL = 'https://kaad.sk6594246.workers.dev'; ///https://kaad.sk6594246.workers.dev/
+(function () {
+  const WORKER_URL = 'https://kaad-portraits.sk6594246.workers.dev';
+  const ALL_CATEGORY = '__ALL__';
 
-  /**
-   * UX_DEFAULTS — baseline UI/UX flags.
-   * Runtime values = merge(UX_DEFAULTS, siteData.ux) via getUx().
-   * Editable in Admin → UI / UX options (saved to Worker with site data).
-   * testimonialsLayout: 'horizontal' | 'vertical'
-   */
   const UX_DEFAULTS = {
     testimonialsLayout: 'horizontal',
-    testimonialsReplayFromStart: true,
-    testimonialsScrollSnap: true,
     testimonialsHideScrollbar: true,
-    testimonialsDragHint: true,
-    testimonialsKeyboard: true,
-    testimonialsReducedMotionGrid: true,
     navShrinkOnScroll: true,
-    focusRings: true,
-    mobileMenuStagger: true,
-    fabHoverScale: true,
-    heroKenBurns: true,
-    heroWave: true,
-    galleryStickyCategories: true,
-    galleryEmptyStatePolish: true,
+    convertGoogleDriveLinks: true,
     lightboxSwipe: true,
-    lightboxCaptionFade: true,
     copyToast: true,
     contactFormValidation: true,
-    sectionFadeInOnScroll: true,
-    /** Convert Google Drive share links to viewable image URLs; skip when URL is already a direct image (*.jpg etc.) */
-    convertGoogleDriveLinks: true,
-    fluidSite: true,
   };
 
   const UX_FLAG_LABELS = {
-    testimonialsReplayFromStart: 'Testimonials: replay from start after idle',
-    testimonialsScrollSnap: 'Testimonials: scroll-snap cards',
     testimonialsHideScrollbar: 'Testimonials: hide scrollbar',
-    testimonialsDragHint: 'Testimonials: “Drag to explore” hint',
-    testimonialsKeyboard: 'Testimonials: keyboard ← →',
-    testimonialsReducedMotionGrid: 'Testimonials: static grid when reduced-motion',
-    navShrinkOnScroll: 'Nav: shrink pill on scroll',
-    focusRings: 'Global: gold focus rings',
-    mobileMenuStagger: 'Mobile menu: staggered links',
-    fabHoverScale: 'FABs: hover scale',
-    heroKenBurns: 'Hero: slow Ken Burns zoom',
-    heroWave: 'Hero: slow wave on load',
-    galleryStickyCategories: 'Gallery: sticky category bar',
-    galleryEmptyStatePolish: 'Gallery: polished empty-state copy',
+    navShrinkOnScroll: 'Nav: shrink on scroll',
+    convertGoogleDriveLinks: 'Images: convert Google Drive links',
     lightboxSwipe: 'Lightbox: touch swipe',
-    lightboxCaptionFade: 'Lightbox: caption fade-in',
-    copyToast: 'Contact: toast after copy',
-    contactFormValidation: 'Contact form: validation + busy state',
-    sectionFadeInOnScroll: 'Global: section fade-in on scroll',
-    convertGoogleDriveLinks: 'Images: convert Google Drive links (skip *.jpg / direct files)',
-    fluidSite: 'Fluid site: clamp spacing, hero blend, smooth reveals',
+    copyToast: 'Toast after copy',
+    contactFormValidation: 'Contact form validation',
   };
 
-  function getUx() {
-    const saved = (siteData && siteData.ux) || {};
-    const out = Object.assign({}, UX_DEFAULTS, saved);
-    if (out.testimonialsLayout !== 'vertical') out.testimonialsLayout = 'horizontal';
-    return out;
+  const DEFAULT_SERVICES = [
+    { id: 's1', title: 'Wedding storytelling', tagline: 'Full day coverage', price: 'Starting at ₹1,49,999', description: 'Ceremony to reception with edited gallery delivery.', features: ['Up to 10 hours', 'Online album', '500+ edited photos'] },
+    { id: 's2', title: 'Portrait session', tagline: 'Studio or location', price: 'Starting at ₹24,999', description: 'Editorial portraits and personal branding.', features: ['2-hour shoot', '25 retouched images', 'Commercial usage'] },
+  ];
+
+  const DEFAULT_TERMS = [
+    { id: 't1', title: '1. Booking & retainer', content: 'A non-refundable retainer secures your date. Remaining balance is due before delivery of final files.' },
+    { id: 't2', title: '2. Delivery', content: 'Proof galleries are shared via private album link. Final selects remain available for an agreed period.' },
+    { id: 't3', title: '3. Usage', content: 'Clients receive a personal usage license. Studio retains copyright of original work.' },
+  ];
+
+  let siteData = {
+    hero: '',
+    photographer: { name: 'KAAD Portraits', tagline: 'Photography', heroTitle: '', bio: '' },
+    album: { title: 'Client portfolio album', description: '', photoUrl: '', url: '' },
+    contact: { email: '', phone: '', instagram: '', whatsapp: '', facebook: '', address: '', workingHours: '' },
+    categories: [],
+    testimonials: [],
+    services: [],
+    terms: [],
+    about: { heading: '', text: '', side: '' },
+    styles: {},
+    ux: {}
+  };
+
+  let lightboxPhotos = [];
+  let lightboxIndex = 0;
+
+  try {
+    if (localStorage.getItem('kaad-theme') === 'light') document.documentElement.classList.add('theme-light');
+  } catch (e) {}
+
+  function escapeHtml(s) {
+    return String(s == null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
   }
 
-  /** True when URL already points at a direct image file (skip Drive conversion). */
+  function getUx() {
+    return Object.assign({}, UX_DEFAULTS, (siteData && siteData.ux) || {});
+  }
+
   function isDirectImageUrl(url) {
     if (!url || typeof url !== 'string') return false;
     const cleaned = url.trim().split('?')[0].split('#')[0].toLowerCase();
     return /\.(jpe?g|png|gif|webp|avif|bmp|svg)$/i.test(cleaned);
   }
 
-  /** Extract Google Drive file id from common share / open / uc URLs. */
   function extractGoogleDriveId(url) {
     if (!url) return '';
     const u = url.trim();
@@ -908,544 +777,21 @@
     m = u.match(/[?&]id=([a-zA-Z0-9_-]+)/);
     if (m) return m[1];
     m = u.match(/\/d\/([a-zA-Z0-9_-]+)/);
-    if (m) return m[1];
-    return '';
+    return m ? m[1] : '';
   }
 
-  /**
-   * Resolve media URL for display:
-   * - Direct *.jpg / *.png / imgbb file links → unchanged
-   * - Google Drive share links → uc?export=view&id=… (when convertGoogleDriveLinks is on)
-   */
   function resolveImageUrl(raw) {
     if (!raw || typeof raw !== 'string') return '';
     const url = raw.trim();
     if (!url) return '';
-
-    // Always skip conversion for clear direct image files
     if (isDirectImageUrl(url)) return url;
-
-    const ux = typeof getUx === 'function' ? getUx() : { convertGoogleDriveLinks: true };
+    if (url.includes('lh3.googleusercontent.com') || url.includes('googleusercontent.com/d/')) return url;
+    const ux = getUx();
     if (ux.convertGoogleDriveLinks === false) return url;
-
-    const isDrive =
-      /drive\.google\.com/i.test(url) ||
-      /docs\.google\.com\/uc/i.test(url);
-
-    if (!isDrive) return url;
-
-    // Already a direct-ish uc / thumbnail link — normalize to export=view
-    const existingId = extractGoogleDriveId(url);
-    if (!existingId) return url;
-
-    if (/[?&]export=view/i.test(url) || /[?&]export=download/i.test(url)) {
-      return 'https://drive.google.com/uc?export=view&id=' + existingId;
-    }
-
-    return 'https://drive.google.com/uc?export=view&id=' + existingId;
+    if (!/drive\.google\.com|docs\.google\.com/i.test(url)) return url;
+    const id = extractGoogleDriveId(url);
+    return id ? 'https://lh3.googleusercontent.com/d/' + id : url;
   }
-
-  const prefersReducedMotion = () =>
-    window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  const STYLE_KEYS = {
-    navTitle:          { label: 'Site Title (Nav Bar)',           defaultFontSize: '0.75rem', defaultAlign: 'left',  defaultContent: 'KAAD PORTRAITS' },
-    heroTitle:        { label: 'Hero Title (PORTFOLIO)',         defaultFontSize: '0.75rem', defaultAlign: 'left',  defaultContent: 'PORTFOLIO' },
-    heroSubtitle:      { label: 'Hero Subtitle (VISUAL WORK)',    defaultFontSize: '0.75rem', defaultAlign: 'right', defaultContent: 'VISUAL WORK' },
-    galleryHeading:    { label: 'Gallery Heading (CURATED WORK)', defaultFontSize: '0.75rem', defaultAlign: 'left',  defaultContent: 'CURATED WORK' },
-    aboutHeading:      { label: 'About Heading',                  defaultFontSize: '2.5rem',  defaultAlign: 'left',  defaultContent: 'the quiet *search* for\nquiet *light*' },
-    aboutText:         { label: 'About Paragraph',                 defaultFontSize: '0.875rem',defaultAlign: 'left', defaultContent: 'A visual storyteller working across editorial, landscape, and portrait work — frames that balance mood with precision.' },
-    footerHeading:     { label: 'Footer Heading (PORTFOLIO)',     defaultFontSize: '4rem',    defaultAlign: 'left',  defaultContent: 'PORTFOLIO' },
-    contactLabel:      { label: 'Contact Label',                   defaultFontSize: '0.625rem',defaultAlign: 'left', defaultContent: 'Contact' },
-    footerCopyright:   { label: 'Footer Copyright',                 defaultFontSize: '0.625rem',defaultAlign: 'left',defaultContent: '© 2026 Portfolio' }
-  };
-
-  let siteData = {
-    hero: '',
-    contact: { email: '', phone: '', instagram: '', whatsapp: '', facebook: '' },
-    categories: [],
-    testimonials: [],
-    styles: {},
-    ux: {}
-  };
-
-  function renderMiniMarkdown(raw) {
-    let text = escapeHtml(raw == null ? '' : String(raw));
-    text = text.replace(/\*(.+?)\*/g, '<strong>$1</strong>');
-    text = text.replace(/_(.+?)_/g, '<em>$1</em>');
-    text = text.replace(/\n/g, '<br>');
-    return text;
-  }
-
-  function applyStyles() {
-    Object.keys(STYLE_KEYS).forEach(key => {
-      const el = document.getElementById('txt-' + key);
-      if (!el) return;
-      const cfg = STYLE_KEYS[key];
-      const saved = (siteData.styles && siteData.styles[key]) || {};
-      el.style.fontSize = saved.fontSize || cfg.defaultFontSize;
-      el.style.textAlign = saved.textAlign || cfg.defaultAlign;
-      const content = (saved.content != null && saved.content !== '') ? saved.content : cfg.defaultContent;
-      el.innerHTML = renderMiniMarkdown(content);
-    });
-  }
-
-  // ============================================================
-  // LOAD SITE DATA
-  // ============================================================
-  async function loadSite() {
-    try {
-      const res = await fetch(WORKER_URL);
-      if (!res.ok) throw new Error('Worker returned ' + res.status);
-      const data = await res.json();
-
-      siteData = data;
-      if (!siteData.styles) siteData.styles = {};
-      if (!siteData.testimonials) siteData.testimonials = [];
-      if (!siteData.contact) siteData.contact = { email: '', phone: '', instagram: '', whatsapp: '', facebook: '' };
-      if (!siteData.ux) siteData.ux = {};
-      applyStyles();
-      applyUxSettings();
-
-      if (data.hero) {
-        const heroEl = document.getElementById('heroImg');
-        const heroSrc = resolveImageUrl(data.hero);
-        heroEl.src = heroSrc;
-        document.getElementById('ogImageMeta').setAttribute('content', heroSrc);
-        const uxHero = getUx();
-        if (uxHero.heroKenBurns && !prefersReducedMotion()) heroEl.classList.add('ken-burns');
-        else heroEl.classList.remove('ken-burns');
-        if (uxHero.heroWave && !prefersReducedMotion()) heroEl.classList.add('hero-wave');
-        else heroEl.classList.remove('hero-wave');
-      }
-
-      renderContactLinks();
-
-      renderCategoryNav();
-      if (data.categories && data.categories.length) {
-        renderGallery(data.categories.length > 1 ? ALL_CATEGORY : data.categories[0].name);
-      }
-      renderTestimonials();
-    } catch (err) {
-      console.error('Failed to load site data:', err);
-      document.getElementById('galleryEmpty').classList.remove('hidden');
-      document.getElementById('galleryEmpty').textContent = 'Could not load content. Check the Worker URL or network connection.';
-      document.getElementById('testimonialsSkeleton').classList.add('hidden');
-    }
-  }
-
-  function buildTestimonialCard(t, ariaHidden) {
-    const card = document.createElement('div');
-    card.className = 'marquee-card border border-brand-border rounded-xl p-6 bg-brand-surface/40 flex flex-col justify-between';
-    if (ariaHidden) card.setAttribute('aria-hidden', 'true');
-
-    const igLink = t.instagram
-      ? `<a href="${escapeHtml(t.instagram)}" target="_blank" rel="noopener noreferrer" ${ariaHidden ? 'tabindex="-1"' : ''} class="w-9 h-9 rounded-full border border-brand-border inline-flex items-center justify-center text-brand-gold hover:border-brand-gold hover:bg-brand-gold/10 transition-colors">
-           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
-         </a>`
-      : '';
-
-    const initials = (t.name || '?').trim().split(/\s+/).slice(0, 2).map(w => w[0]).join('').toUpperCase();
-    const avatarHtml = t.avatar
-      ? `<img src="${escapeHtml(resolveImageUrl(t.avatar))}" alt="${escapeHtml(t.name || '')}" class="w-10 h-10 rounded-full object-cover border border-brand-border shrink-0" />`
-      : `<div class="w-10 h-10 rounded-full border border-brand-border bg-brand-dark flex items-center justify-center text-xs text-brand-gold font-medium shrink-0">${escapeHtml(initials)}</div>`;
-
-    card.innerHTML = `
-      <p class="text-sm leading-relaxed text-brand-light/90">"${escapeHtml(t.quote || '')}"</p>
-      <div class="mt-4 flex items-center gap-3">
-        ${avatarHtml}
-        <p class="text-xs uppercase tracking-widest text-brand-muted flex-1">${escapeHtml(t.name || '')}</p>
-        ${igLink}
-      </div>`;
-    return card;
-  }
-
-  // Pause CSS marquee while the user manually scrolls / drags; resume (or replay) after idle.
-  function setupMarqueeInteraction(wrap, track) {
-    if (!wrap || wrap.dataset.marqueeBound === '1') return;
-    wrap.dataset.marqueeBound = '1';
-
-    let idleTimer = null;
-    const IDLE_MS = 2000;
-
-    const restartAnimation = () => {
-      if (!getUx().testimonialsReplayFromStart || !track) {
-        wrap.classList.remove('is-interacting');
-        return;
-      }
-      // Force CSS animation to restart from 0%
-      track.style.animation = 'none';
-      // reflow
-      void track.offsetWidth;
-      track.style.animation = '';
-      wrap.classList.remove('is-interacting');
-    };
-
-    const startInteracting = () => {
-      wrap.classList.add('is-interacting');
-      clearTimeout(idleTimer);
-      const hint = document.getElementById('testimonialsDragHint');
-      if (hint) {
-        hint.classList.remove('show');
-        try { sessionStorage.setItem('kaad-drag-hint-seen', '1'); } catch (e) {}
-      }
-    };
-    const endInteracting = () => {
-      clearTimeout(idleTimer);
-      idleTimer = setTimeout(restartAnimation, IDLE_MS);
-    };
-
-    wrap.addEventListener('pointerdown', startInteracting);
-    wrap.addEventListener('wheel', startInteracting, { passive: true });
-    wrap.addEventListener('touchstart', startInteracting, { passive: true });
-    wrap.addEventListener('scroll', startInteracting, { passive: true });
-    wrap.addEventListener('pointerup', endInteracting);
-    wrap.addEventListener('pointercancel', endInteracting);
-    wrap.addEventListener('pointerleave', endInteracting);
-    wrap.addEventListener('touchend', endInteracting);
-
-    if (getUx().testimonialsKeyboard) {
-      wrap.setAttribute('tabindex', '0');
-      wrap.setAttribute('role', 'region');
-      wrap.setAttribute('aria-label', 'Testimonials');
-      wrap.addEventListener('keydown', (e) => {
-        if (e.key !== 'ArrowLeft' && e.key !== 'ArrowRight') return;
-        e.preventDefault();
-        startInteracting();
-        const delta = e.key === 'ArrowRight' ? 340 : -340;
-        wrap.scrollBy({ left: delta, behavior: 'smooth' });
-        endInteracting();
-      });
-    }
-  }
-
-  function renderTestimonials() {
-    const track = document.getElementById('testimonialsGrid');
-    const wrap = document.getElementById('testimonialsMarqueeWrap');
-    const empty = document.getElementById('testimonialsEmpty');
-    const skeleton = document.getElementById('testimonialsSkeleton');
-    const hint = document.getElementById('testimonialsDragHint');
-    skeleton.classList.add('hidden');
-    track.innerHTML = '';
-    const items = siteData.testimonials || [];
-
-    if (!items.length) {
-      wrap.classList.add('hidden');
-      empty.classList.remove('hidden');
-      if (hint) hint.classList.remove('show');
-      return;
-    }
-    empty.classList.add('hidden');
-    wrap.classList.remove('hidden');
-
-    const useVertical =
-      getUx().testimonialsLayout === 'vertical' ||
-      (getUx().testimonialsReducedMotionGrid && prefersReducedMotion());
-
-    // Reset layout classes
-    wrap.classList.remove('hide-scrollbar', 'snap-x', 'is-vertical');
-    track.classList.remove('testimonials-vertical');
-    track.style.animation = '';
-    track.style.removeProperty('--marquee-duration');
-    track.style.width = '';
-    track.style.maxWidth = '';
-
-    if (useVertical) {
-      wrap.classList.add('is-vertical');
-      track.classList.add('testimonials-vertical');
-      track.style.animation = 'none';
-      track.style.width = '100%';
-      track.style.maxWidth = '100%';
-      items.forEach(t => track.appendChild(buildTestimonialCard(t, false)));
-      if (hint) hint.classList.remove('show');
-      return;
-    }
-
-    // Horizontal marquee mode
-    if (getUx().testimonialsHideScrollbar) wrap.classList.add('hide-scrollbar');
-    if (getUx().testimonialsScrollSnap) wrap.classList.add('snap-x');
-
-    // Duplicate the set so the marquee can loop seamlessly (translateX(-50%) lands
-    // exactly back on the start of the duplicate copy). Real items are focusable/
-    // linkable; the duplicate copy is aria-hidden to avoid confusing screen readers.
-    items.forEach(t => track.appendChild(buildTestimonialCard(t, false)));
-    items.forEach(t => track.appendChild(buildTestimonialCard(t, true)));
-
-    // Scale scroll duration with item count so speed feels consistent either way.
-    const duration = Math.max(18, items.length * 6);
-    track.style.setProperty('--marquee-duration', duration + 's');
-
-    // If there are very few items, the loop can look sparse — pad by cloning the
-    // pair again so the track is comfortably wider than the viewport.
-    if (items.length <= 2) {
-      items.forEach(t => track.appendChild(buildTestimonialCard(t, true)));
-      items.forEach(t => track.appendChild(buildTestimonialCard(t, true)));
-    }
-
-    setupMarqueeInteraction(wrap, track);
-
-    if (getUx().testimonialsDragHint && hint) {
-      let seen = false;
-      try { seen = sessionStorage.getItem('kaad-drag-hint-seen') === '1'; } catch (e) {}
-      if (!seen) {
-        requestAnimationFrame(() => hint.classList.add('show'));
-        setTimeout(() => hint.classList.remove('show'), 4500);
-      }
-    }
-  }
-
-  function toDigitsOnly(str) {
-    return (str || '').replace(/[^\d]/g, '');
-  }
-
-  function toWhatsappUrl(raw) {
-    if (!raw) return '';
-    const trimmed = raw.trim();
-    if (/^https?:\/\//i.test(trimmed)) return trimmed;
-    const digits = toDigitsOnly(trimmed);
-    return digits ? 'https://wa.me/' + digits : '';
-  }
-
-  function renderContactLinks() {
-    const c = siteData.contact || {};
-
-    const emailEl = document.getElementById('contactEmail');
-    const emailText = document.getElementById('contactEmailText');
-    emailText.textContent = c.email || '';
-    emailEl.href = c.email ? 'mailto:' + c.email : '#';
-    emailEl.style.display = c.email ? '' : 'none';
-    document.getElementById('copyEmailBtn').classList.toggle('hidden', !c.email);
-
-    const phoneEl = document.getElementById('contactPhone');
-    const phoneText = document.getElementById('contactPhoneText');
-    phoneText.textContent = c.phone || '';
-    phoneEl.href = c.phone ? 'tel:' + c.phone : '#';
-    phoneEl.style.display = c.phone ? '' : 'none';
-    document.getElementById('copyPhoneBtn').classList.toggle('hidden', !c.phone);
-
-    const toggle = (id, href) => {
-      const el = document.getElementById(id);
-      if (href) {
-        el.href = href;
-        el.classList.remove('hidden');
-        el.classList.add('flex');
-      } else {
-        el.classList.add('hidden');
-        el.classList.remove('flex');
-      }
-    };
-
-    toggle('contactInstagram', c.instagram || '');
-    toggle('contactWhatsapp', toWhatsappUrl(c.whatsapp || ''));
-    toggle('contactFacebook', c.facebook || '');
-  }
-
-  const ALL_CATEGORY = '__ALL__';
-
-  function renderCategoryNav() {
-    const nav = document.getElementById('catNav');
-    nav.innerHTML = '';
-    const cats = siteData.categories || [];
-    const totalPhotos = cats.reduce((sum, c) => sum + ((c.photos && c.photos.length) || 0), 0);
-
-    const makeBtn = (name, label, count, isActive) => {
-      const btn = document.createElement('button');
-      btn.className = 'cat-btn pb-1 text-xs uppercase tracking-[0.2em] font-medium border-b transition-all duration-300 flex items-center gap-1.5' + (isActive ? ' active' : '');
-      btn.innerHTML = `<span>${escapeHtml(label)}</span><span class="text-[10px] text-brand-muted">(${count})</span>`;
-      btn.addEventListener('click', () => {
-        document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        renderGallery(name);
-      });
-      return btn;
-    };
-
-    if (cats.length > 1) {
-      nav.appendChild(makeBtn(ALL_CATEGORY, 'All', totalPhotos, true));
-    }
-    cats.forEach((cat, i) => {
-      const count = (cat.photos && cat.photos.length) || 0;
-      const isActive = cats.length <= 1 && i === 0;
-      nav.appendChild(makeBtn(cat.name, cat.name, count, isActive));
-    });
-  }
-
-  function renderGallery(categoryName) {
-    const grid = document.getElementById('galleryGrid');
-    const empty = document.getElementById('galleryEmpty');
-    grid.innerHTML = '';
-    const cats = siteData.categories || [];
-    const photos = categoryName === ALL_CATEGORY
-      ? cats.flatMap(c => c.photos || [])
-      : ((cats.find(c => c.name === categoryName) || {}).photos || []);
-
-    if (categoryName !== ALL_CATEGORY) trackAnalyticsEvent('album:' + categoryName);
-
-    if (!photos.length) {
-      empty.classList.remove('hidden');
-      if (getUx().galleryEmptyStatePolish) {
-        empty.textContent = categoryName === ALL_CATEGORY
-          ? 'No photographs in the collection yet — check back soon.'
-          : 'This album is empty for now. Explore another category above.';
-      } else {
-        empty.textContent = 'No photos yet in this category.';
-      }
-      return;
-    }
-    empty.classList.add('hidden');
-
-    photos.forEach((photo, index) => {
-      const wrap = document.createElement('div');
-      wrap.className = 'group cursor-pointer gallery-card-fluid';
-      wrap.style.transitionDelay = (Math.min(index, 12) * 0.06) + 's';
-      
-      wrap.innerHTML = `
-        <div class="gallery-frame aspect-portrait overflow-hidden rounded-xl relative">
-          <div class="absolute inset-0 skeleton"></div>
-          <img class="gallery-img w-full h-full object-cover relative z-10" src="${escapeHtml(resolveImageUrl(photo.url))}" alt="${escapeHtml(photo.name || 'Portrait')}" loading="lazy" onload="this.classList.add('loaded'); this.previousElementSibling.style.display='none'" />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-20 flex items-end p-6">
-            <span class="text-xs uppercase tracking-[0.2em] text-brand-light font-medium">${photo.name || 'Untitled'}</span>
-          </div>
-        </div>`;
-      
-      // Open Lightbox on click
-      wrap.addEventListener('click', () => openLightbox(photos, index));
-      grid.appendChild(wrap);
-    });
-
-    // Fluid staggered reveal for gallery cards
-    if (getUx().fluidSite !== false && 'IntersectionObserver' in window && !prefersReducedMotion()) {
-      const cardObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-in');
-            cardObs.unobserve(entry.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
-      grid.querySelectorAll('.gallery-card-fluid').forEach(el => cardObs.observe(el));
-    } else {
-      grid.querySelectorAll('.gallery-card-fluid').forEach(el => el.classList.add('is-in'));
-    }
-  }
-
-  // ============================================================
-  // LIGHTBOX MODAL
-  // ============================================================
-  const lightboxModal = document.getElementById('lightboxModal');
-  const lightboxImg = document.getElementById('lightboxImg');
-  const lightboxCaption = document.getElementById('lightboxCaption');
-  const lightboxClose = document.getElementById('lightboxClose');
-  const lightboxInstagram = document.getElementById('lightboxInstagram');
-  const lightboxPrev = document.getElementById('lightboxPrev');
-  const lightboxNext = document.getElementById('lightboxNext');
-  const lightboxCounter = document.getElementById('lightboxCounter');
-
-  let lightboxPhotos = [];
-  let lightboxIndex = 0;
-
-  function showLightboxPhoto(index) {
-    if (!lightboxPhotos.length) return;
-    lightboxIndex = (index + lightboxPhotos.length) % lightboxPhotos.length;
-    const photo = lightboxPhotos[lightboxIndex];
-
-    lightboxImg.src = resolveImageUrl(photo.url);
-    lightboxCaption.textContent = photo.name || '';
-
-    if (photo.instagram) {
-      lightboxInstagram.href = photo.instagram;
-      lightboxInstagram.classList.remove('hidden');
-      lightboxInstagram.classList.add('flex');
-    } else {
-      lightboxInstagram.classList.add('hidden');
-      lightboxInstagram.classList.remove('flex');
-    }
-
-    const multi = lightboxPhotos.length > 1;
-    lightboxPrev.classList.toggle('hidden', !multi);
-    lightboxNext.classList.toggle('hidden', !multi);
-    lightboxCounter.textContent = multi ? (lightboxIndex + 1) + ' / ' + lightboxPhotos.length : '';
-  }
-
-  function openLightbox(photos, index) {
-    lightboxPhotos = photos || [];
-    showLightboxPhoto(index || 0);
-    lightboxModal.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    if (getUx().lightboxCaptionFade) {
-      lightboxCaption.style.opacity = '0';
-      requestAnimationFrame(() => {
-        lightboxCaption.style.transition = 'opacity 0.35s ease';
-        lightboxCaption.style.opacity = '1';
-      });
-    }
-  }
-
-  function closeLightbox() {
-    lightboxModal.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-
-  lightboxPrev.addEventListener('click', (e) => { e.stopPropagation(); showLightboxPhoto(lightboxIndex - 1); });
-  lightboxNext.addEventListener('click', (e) => { e.stopPropagation(); showLightboxPhoto(lightboxIndex + 1); });
-
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) closeLightbox();
-  });
-  document.addEventListener('keydown', (e) => {
-    if (!lightboxModal.classList.contains('open')) return;
-    if (e.key === 'ArrowLeft') showLightboxPhoto(lightboxIndex - 1);
-    if (e.key === 'ArrowRight') showLightboxPhoto(lightboxIndex + 1);
-  });
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') {
-      closeLightbox();
-      closeAdmin();
-      closeMobileMenu();
-    }
-  });
-
-  // Touch swipe for lightbox (honours getUx().lightboxSwipe at event time)
-  {
-    let touchStartX = 0;
-    let touchStartY = 0;
-    lightboxModal.addEventListener('touchstart', (e) => {
-      if (!e.touches[0]) return;
-      touchStartX = e.touches[0].clientX;
-      touchStartY = e.touches[0].clientY;
-    }, { passive: true });
-    lightboxModal.addEventListener('touchend', (e) => {
-      if (!getUx().lightboxSwipe) return;
-      if (!e.changedTouches[0] || !lightboxModal.classList.contains('open')) return;
-      const dx = e.changedTouches[0].clientX - touchStartX;
-      const dy = e.changedTouches[0].clientY - touchStartY;
-      if (Math.abs(dx) < 50 || Math.abs(dx) < Math.abs(dy)) return;
-      if (dx < 0) showLightboxPhoto(lightboxIndex + 1);
-      else showLightboxPhoto(lightboxIndex - 1);
-    }, { passive: true });
-  }
-
-  // ============================================================
-  // MOBILE MENU DRAWER
-  // ============================================================
-  const mobileMenu = document.getElementById('mobileMenu');
-  const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-  const mobileMenuClose = document.getElementById('mobileMenuClose');
-
-  function openMobileMenu() {
-    mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-    if (getUx().mobileMenuStagger) mobileMenu.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeMobileMenu() {
-    mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-    mobileMenu.classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
-
-  mobileMenuBtn.addEventListener('click', openMobileMenu);
 
   function showUxToast(message) {
     const toast = document.getElementById('uxToast');
@@ -1456,643 +802,615 @@
     showUxToast._t = setTimeout(() => toast.classList.remove('show'), 1800);
   }
 
-  function copyToClipboard(text, btn, label) {
-    if (!text) return;
-    navigator.clipboard.writeText(text).then(() => {
-      const original = btn.innerHTML;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>';
-      btn.classList.add('text-brand-gold');
-      showUxToast((label || 'Copied') + ' to clipboard');
-      setTimeout(() => {
-        btn.innerHTML = original;
-        btn.classList.remove('text-brand-gold');
-      }, 1500);
-    }).catch(() => {});
+  function mergeDefaults(data) {
+    const d = data || {};
+    d.photographer = Object.assign({ name: 'KAAD Portraits', tagline: 'Photography', heroTitle: '', bio: '' }, d.photographer || {});
+    d.album = Object.assign({ title: '', description: '', photoUrl: '', url: '' }, d.album || {});
+    d.contact = Object.assign({ email: '', phone: '', instagram: '', whatsapp: '', facebook: '', address: '', workingHours: '' }, d.contact || {});
+    d.about = Object.assign({ heading: '', text: '', side: '' }, d.about || {});
+    d.categories = Array.isArray(d.categories) ? d.categories : [];
+    d.testimonials = Array.isArray(d.testimonials) ? d.testimonials : [];
+    d.services = Array.isArray(d.services) && d.services.length ? d.services : DEFAULT_SERVICES.slice();
+    d.terms = Array.isArray(d.terms) && d.terms.length ? d.terms : DEFAULT_TERMS.slice();
+    d.styles = d.styles || {};
+    d.ux = d.ux || {};
+    // legacy styles → text fields
+    if (!d.photographer.name && d.styles.navTitle && d.styles.navTitle.content) d.photographer.name = d.styles.navTitle.content;
+    if (!d.about.heading && d.styles.aboutHeading && d.styles.aboutHeading.content) d.about.heading = d.styles.aboutHeading.content;
+    if (!d.about.text && d.styles.aboutText && d.styles.aboutText.content) d.about.text = d.styles.aboutText.content;
+    if (!d.album.photoUrl && d.hero) d.album.photoUrl = d.hero;
+    return d;
   }
 
-  document.getElementById('copyEmailBtn').addEventListener('click', function () {
-    copyToClipboard((siteData.contact && siteData.contact.email) || '', this, 'Email');
-  });
-  document.getElementById('copyPhoneBtn').addEventListener('click', function () {
-    copyToClipboard((siteData.contact && siteData.contact.phone) || '', this, 'Phone');
-  });
-
-  // Contact form (mailto — no backend required)
-  const contactForm = document.getElementById('contactForm');
-  const contactFormMsg = document.getElementById('contactFormMsg');
-  const cfName = document.getElementById('cfName');
-  const cfEmail = document.getElementById('cfEmail');
-  const cfMessage = document.getElementById('cfMessage');
-  const cfSubmitBtn = contactForm.querySelector('button[type="submit"]');
-
-  function setFieldInvalid(el, invalid) {
-    if (!getUx().contactFormValidation || !el) return;
-    el.classList.toggle('ux-invalid', !!invalid);
+  function applyStudioTexts() {
+    const p = siteData.photographer || {};
+    const name = p.name || 'KAAD Portraits';
+    document.getElementById('txt-navTitle').textContent = name;
+    document.getElementById('txt-navTagline').textContent = p.tagline || 'Photography';
+    document.getElementById('navLogoLetter').textContent = (name.trim()[0] || 'K').toUpperCase();
+    document.title = name;
+    document.getElementById('txt-heroTitle').textContent = p.heroTitle || p.tagline || name;
+    document.getElementById('txt-heroBio').textContent = p.bio || '';
+    const about = siteData.about || {};
+    if (about.heading) document.getElementById('txt-aboutHeading').textContent = about.heading;
+    if (about.text) document.getElementById('txt-aboutText').textContent = about.text;
+    if (about.side) document.getElementById('txt-aboutSide').textContent = about.side;
+    // legacy style content fallbacks
+    const st = siteData.styles || {};
+    if (st.galleryHeading && st.galleryHeading.content) document.getElementById('txt-galleryHeading').textContent = st.galleryHeading.content;
+    if (st.footerHeading && st.footerHeading.content) document.getElementById('txt-footerHeading').textContent = st.footerHeading.content;
+    if (st.footerCopyright && st.footerCopyright.content) document.getElementById('txt-footerCopyright').textContent = st.footerCopyright.content;
   }
 
-  contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = cfName.value.trim();
-    const fromEmail = cfEmail.value.trim();
-    const message = cfMessage.value.trim();
-    const toEmail = (siteData.contact && siteData.contact.email) || '';
-
-    let ok = true;
-    if (getUx().contactFormValidation) {
-      setFieldInvalid(cfName, !name);
-      setFieldInvalid(cfEmail, !fromEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fromEmail));
-      setFieldInvalid(cfMessage, !message);
-      ok = name && fromEmail && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fromEmail) && message;
-      if (!ok) {
-        contactFormMsg.textContent = 'Please fill in all fields with a valid email.';
-        contactFormMsg.classList.remove('hidden');
-        return;
-      }
-    } else if (!name || !fromEmail || !message) {
-      return;
-    }
-
-    if (!toEmail) {
-      contactFormMsg.textContent = 'Contact email not set up yet — please reach out via another method below.';
-      contactFormMsg.classList.remove('hidden');
-      return;
-    }
-
-    const subject = 'Website inquiry from ' + name;
-    const body = message + '\n\n— ' + name + ' (' + fromEmail + ')';
-    if (cfSubmitBtn && getUx().contactFormValidation) {
-      cfSubmitBtn.disabled = true;
-      cfSubmitBtn.textContent = 'Opening…';
-    }
-    window.location.href = 'mailto:' + encodeURIComponent(toEmail) +
-      '?subject=' + encodeURIComponent(subject) +
-      '&body=' + encodeURIComponent(body);
-
-    contactFormMsg.textContent = 'Opening your email app…';
-    contactFormMsg.classList.remove('hidden');
-    contactForm.reset();
-    setFieldInvalid(cfName, false);
-    setFieldInvalid(cfEmail, false);
-    setFieldInvalid(cfMessage, false);
-    setTimeout(() => {
-      if (cfSubmitBtn) {
-        cfSubmitBtn.disabled = false;
-        cfSubmitBtn.textContent = 'Send Message';
-      }
-    }, 2000);
-  });
-
-  [cfName, cfEmail, cfMessage].forEach(el => {
-    if (!el) return;
-    el.addEventListener('input', () => setFieldInvalid(el, false));
-  });
-
-  // Theme toggle (light/dark)
-  const themeToggleBtn = document.getElementById('themeToggleBtn');
-  const themeIconMoon = document.getElementById('themeIconMoon');
-  const themeIconSun = document.getElementById('themeIconSun');
-
-  function syncThemeIcon() {
-    const isLight = document.documentElement.classList.contains('theme-light');
-    themeIconMoon.classList.toggle('hidden', isLight);
-    themeIconSun.classList.toggle('hidden', !isLight);
-  }
-  syncThemeIcon();
-
-  themeToggleBtn.addEventListener('click', () => {
-    const isLight = document.documentElement.classList.toggle('theme-light');
-    try { localStorage.setItem('kaad-theme', isLight ? 'light' : 'dark'); } catch (e) {}
-    syncThemeIcon();
-  });
-
-  // Scroll to top button
-  const scrollTopBtn = document.getElementById('scrollTopBtn');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 500) {
-      scrollTopBtn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-2');
-    } else {
-      scrollTopBtn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-2');
-    }
-  }, { passive: true });
-  scrollTopBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
-
-  // Active nav-link highlighting on scroll
-  const scrollSections = ['home', 'gallerySection', 'about', 'contact']
-    .map(id => document.getElementById(id))
-    .filter(Boolean);
-  const sectionToNavKey = { home: 'home', gallerySection: 'gallery', about: 'about', contact: 'contact' };
-  const navLinks = document.querySelectorAll('.scroll-nav-link');
-
-  function setActiveNav(key) {
-    navLinks.forEach(link => {
-      const isActive = link.dataset.section === key;
-      link.classList.toggle('text-brand-light', isActive);
-      link.classList.toggle('text-brand-muted', !isActive);
+  function renderAlbum() {
+    const a = siteData.album || {};
+    const photo = resolveImageUrl(a.photoUrl || siteData.hero || '');
+    const link = a.url || '#';
+    document.getElementById('txt-albumTitle').textContent = a.title || 'Client portfolio album';
+    document.getElementById('txt-albumCardTitle').textContent = a.title || 'Official portfolio album';
+    document.getElementById('txt-albumCardText').textContent = a.description || 'High-resolution selections via shared album.';
+    document.getElementById('txt-albumSub').textContent = a.description || 'Open the featured frame to view the full linked gallery.';
+    const img = document.getElementById('albumFeatureImg');
+    img.src = photo || '';
+    img.style.display = photo ? 'block' : 'none';
+    ['albumFeatureLink', 'albumCta'].forEach(id => {
+      const el = document.getElementById(id);
+      el.href = link;
+      if (!a.url) el.classList.add('hidden'); else el.classList.remove('hidden');
     });
   }
 
-  if (scrollSections.length && 'IntersectionObserver' in window) {
-    const spyObserver = new IntersectionObserver((entries) => {
-      let best = null;
-      entries.forEach(entry => {
-        if (entry.isIntersecting && (!best || entry.intersectionRatio > best.intersectionRatio)) {
-          best = entry;
-        }
-      });
-      if (best) setActiveNav(sectionToNavKey[best.target.id]);
-    }, { rootMargin: '-40% 0px -50% 0px', threshold: [0, 0.25, 0.5, 0.75, 1] });
-    scrollSections.forEach(sec => spyObserver.observe(sec));
+  function renderServices() {
+    const grid = document.getElementById('servicesGrid');
+    const sel = document.getElementById('cfService');
+    grid.innerHTML = '';
+    sel.innerHTML = '<option value="">Select…</option>';
+    (siteData.services || []).forEach(s => {
+      const card = document.createElement('div');
+      card.className = 'service-card glass';
+      const feats = (s.features || []).map(f => '<li>' + escapeHtml(f) + '</li>').join('');
+      card.innerHTML = '<div class="section-label">' + escapeHtml(s.tagline || 'Service') + '</div><h3>' + escapeHtml(s.title || '') + '</h3><div class="price">' + escapeHtml(s.price || '') + '</div><p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.75rem">' + escapeHtml(s.description || '') + '</p><ul>' + feats + '</ul>';
+      grid.appendChild(card);
+      const opt = document.createElement('option');
+      opt.value = s.title || '';
+      opt.textContent = s.title || 'Service';
+      sel.appendChild(opt);
+    });
   }
-  mobileMenuClose.addEventListener('click', closeMobileMenu);
-  document.querySelectorAll('.mobile-nav-link').forEach(link => {
-    link.addEventListener('click', closeMobileMenu);
+
+  function renderTerms() {
+    const list = document.getElementById('termsList');
+    list.innerHTML = '';
+    (siteData.terms || []).forEach(t => {
+      const el = document.createElement('div');
+      el.className = 'term-item glass';
+      el.innerHTML = '<h3>' + escapeHtml(t.title || '') + '</h3><p>' + escapeHtml(t.content || '') + '</p>';
+      list.appendChild(el);
+    });
+  }
+
+  function renderContactLinks() {
+    const c = siteData.contact || {};
+    document.getElementById('dispEmail').textContent = c.email || 'Email';
+    document.getElementById('dispPhone').textContent = c.phone || 'Phone';
+    document.getElementById('dispHours').textContent = c.workingHours || '';
+    document.getElementById('dispAddress').textContent = c.address || '';
+    const wa = document.getElementById('linkWhatsapp');
+    if (c.whatsapp) {
+      const href = /wa\.me|api\.whatsapp/i.test(c.whatsapp) ? c.whatsapp : 'https://wa.me/' + String(c.whatsapp).replace(/\D/g, '');
+      wa.href = href; wa.classList.remove('hidden');
+    } else wa.classList.add('hidden');
+    const ig = document.getElementById('linkInstagram');
+    if (c.instagram) { ig.href = c.instagram; ig.classList.remove('hidden'); } else ig.classList.add('hidden');
+    const fb = document.getElementById('linkFacebook');
+    if (c.facebook) { fb.href = c.facebook; fb.classList.remove('hidden'); } else fb.classList.add('hidden');
+  }
+
+  function renderCategoryNav() {
+    const nav = document.getElementById('categoryNav');
+    nav.innerHTML = '';
+    const cats = siteData.categories || [];
+    let total = 0;
+    cats.forEach(c => { total += (c.photos || []).length; });
+    function makeBtn(key, label, count, active) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'cat-btn' + (active ? ' active' : '');
+      b.textContent = label + (count != null ? ' (' + count + ')' : '');
+      b.addEventListener('click', () => renderGallery(key));
+      return b;
+    }
+    if (cats.length > 1) nav.appendChild(makeBtn(ALL_CATEGORY, 'All', total, true));
+    cats.forEach((c, i) => nav.appendChild(makeBtn(c.name, c.name, (c.photos || []).length, cats.length === 1 && i === 0)));
+  }
+
+  function renderGallery(categoryName) {
+    const grid = document.getElementById('galleryGrid');
+    const empty = document.getElementById('galleryEmpty');
+    grid.innerHTML = '';
+    document.querySelectorAll('.cat-btn').forEach(btn => {
+      const isAll = categoryName === ALL_CATEGORY && btn.textContent.indexOf('All') === 0;
+      const isMatch = btn.textContent.indexOf(categoryName) === 0;
+      btn.classList.toggle('active', categoryName === ALL_CATEGORY ? isAll : isMatch);
+    });
+    const cats = siteData.categories || [];
+    let photos = [];
+    if (categoryName === ALL_CATEGORY) {
+      cats.forEach(c => (c.photos || []).forEach(p => photos.push(Object.assign({ _cat: c.name }, p))));
+    } else {
+      const cat = cats.find(c => c.name === categoryName);
+      photos = ((cat && cat.photos) || []).map(p => Object.assign({ _cat: categoryName }, p));
+    }
+    lightboxPhotos = photos;
+    if (!photos.length) {
+      empty.classList.remove('hidden');
+      return;
+    }
+    empty.classList.add('hidden');
+    photos.forEach((p, idx) => {
+      const card = document.createElement('div');
+      card.className = 'gallery-card';
+      card.innerHTML = '<img src="' + escapeHtml(resolveImageUrl(p.url)) + '" alt="' + escapeHtml(p.name || '') + '" loading="lazy" /><div class="cap">' + escapeHtml(p.name || p._cat || '') + '</div>';
+      card.addEventListener('click', () => openLightbox(idx));
+      grid.appendChild(card);
+    });
+  }
+
+  function renderTestimonials() {
+    const root = document.getElementById('testimonialsRoot');
+    root.innerHTML = '';
+    const list = siteData.testimonials || [];
+    if (!list.length) {
+      root.innerHTML = '<p style="color:var(--text-muted)">No testimonials yet.</p>';
+      return;
+    }
+    const ux = getUx();
+    const vertical = ux.testimonialsLayout === 'vertical';
+    const wrap = document.createElement('div');
+    wrap.className = vertical ? 'testimonials-vertical' : 'testimonials-track' + (ux.testimonialsHideScrollbar ? ' hide-scroll' : '');
+    list.forEach(t => {
+      const card = document.createElement('div');
+      card.className = 't-card glass';
+      card.innerHTML = '<p class="quote">"' + escapeHtml(t.quote || '') + '"</p><div class="who">' + escapeHtml(t.name || '') + '</div>';
+      wrap.appendChild(card);
+    });
+    root.appendChild(wrap);
+  }
+
+  function openLightbox(i) {
+    if (!lightboxPhotos.length) return;
+    lightboxIndex = (i + lightboxPhotos.length) % lightboxPhotos.length;
+    const p = lightboxPhotos[lightboxIndex];
+    document.getElementById('lightboxImg').src = resolveImageUrl(p.url);
+    document.getElementById('lightboxCaption').textContent = p.name || '';
+    document.getElementById('lightboxModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightboxModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  async function loadSiteData() {
+    try {
+      const res = await fetch(WORKER_URL);
+      if (!res.ok) throw new Error('Worker ' + res.status);
+      const data = await res.json();
+      siteData = mergeDefaults(data);
+      applyStudioTexts();
+      if (siteData.hero) {
+        document.getElementById('heroImg').src = resolveImageUrl(siteData.hero);
+        document.getElementById('ogImageMeta').setAttribute('content', resolveImageUrl(siteData.hero));
+      }
+      renderAlbum();
+      renderServices();
+      renderTerms();
+      renderContactLinks();
+      renderCategoryNav();
+      const cats = siteData.categories || [];
+      if (cats.length) renderGallery(cats.length > 1 ? ALL_CATEGORY : cats[0].name);
+      else document.getElementById('galleryEmpty').classList.remove('hidden');
+      renderTestimonials();
+    } catch (err) {
+      console.error(err);
+      siteData = mergeDefaults(siteData);
+      applyStudioTexts();
+      renderServices();
+      renderTerms();
+      document.getElementById('galleryEmpty').classList.remove('hidden');
+      document.getElementById('galleryEmpty').textContent = 'Could not load content from Worker. Showing defaults.';
+    }
+  }
+
+  // Theme
+  document.getElementById('themeToggleBtn').addEventListener('click', () => {
+    document.documentElement.classList.toggle('theme-light');
+    try {
+      localStorage.setItem('kaad-theme', document.documentElement.classList.contains('theme-light') ? 'light' : 'dark');
+    } catch (e) {}
   });
 
-  // ============================================================
-  // ADMIN PANEL
-  // ============================================================
-  const overlay   = document.getElementById('adminOverlay');
-  const pinStep   = document.getElementById('pinStep');
-  const editorStep= document.getElementById('editorStep');
-  const pinInput  = document.getElementById('pinInput');
-  const pinError  = document.getElementById('pinError');
-  const saveMsg   = document.getElementById('saveMsg');
+  // Nav scroll
+  window.addEventListener('scroll', () => {
+    const nav = document.getElementById('siteNav');
+    if (getUx().navShrinkOnScroll) nav.classList.toggle('scrolled', window.scrollY > 40);
+    document.getElementById('scrollTopBtn').classList.toggle('show', window.scrollY > 400);
+  });
 
-  document.getElementById('adminBtn').addEventListener('click', () => {
+  document.getElementById('scrollTopBtn').addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile menu
+  const mobileMenu = document.getElementById('mobileMenu');
+  document.getElementById('mobileMenuBtn').addEventListener('click', () => mobileMenu.classList.add('open'));
+  document.getElementById('mobileMenuClose').addEventListener('click', () => mobileMenu.classList.remove('open'));
+  document.querySelectorAll('.mobile-nav-link').forEach(a => a.addEventListener('click', () => mobileMenu.classList.remove('open')));
+
+  // Lightbox controls
+  document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+  document.getElementById('lightboxPrev').addEventListener('click', () => openLightbox(lightboxIndex - 1));
+  document.getElementById('lightboxNext').addEventListener('click', () => openLightbox(lightboxIndex + 1));
+  document.getElementById('lightboxModal').addEventListener('click', e => { if (e.target.id === 'lightboxModal') closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!document.getElementById('lightboxModal').classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') openLightbox(lightboxIndex - 1);
+    if (e.key === 'ArrowRight') openLightbox(lightboxIndex + 1);
+  });
+
+  // Copy contact
+  function copyText(text, label) {
+    if (!text) return;
+    navigator.clipboard.writeText(text).then(() => showUxToast((label || 'Copied') + ' to clipboard')).catch(() => {});
+  }
+  document.getElementById('copyEmailBtn').addEventListener('click', () => copyText((siteData.contact || {}).email, 'Email'));
+  document.getElementById('copyPhoneBtn').addEventListener('click', () => copyText((siteData.contact || {}).phone, 'Phone'));
+
+  // Contact form → mailto
+  document.getElementById('contactForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const c = siteData.contact || {};
+    const name = document.getElementById('cfName').value.trim();
+    const email = document.getElementById('cfEmail').value.trim();
+    const service = document.getElementById('cfService').value;
+    const message = document.getElementById('cfMessage').value.trim();
+    if (getUx().contactFormValidation && (!name || !email)) {
+      showUxToast('Please fill name and email');
+      return;
+    }
+    const subject = encodeURIComponent('Enquiry' + (service ? ': ' + service : ''));
+    const body = encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\nService: ' + service + '\n\n' + message);
+    if (c.email) window.location.href = 'mailto:' + c.email + '?subject=' + subject + '&body=' + body;
+    else showUxToast('No contact email configured');
+  });
+
+  // Admin
+  const adminOverlay = document.getElementById('adminOverlay');
+  const pinStep = document.getElementById('pinStep');
+  const editorStep = document.getElementById('editorStep');
+  const adminFooter = document.getElementById('adminFooterActions');
+  let adminPin = '';
+
+  function openAdmin() {
+    adminOverlay.classList.add('open');
     pinStep.classList.remove('hidden');
     editorStep.classList.add('hidden');
-    pinInput.value = '';
-    pinError.classList.add('hidden');
-    saveMsg.classList.add('hidden');
-    overlay.classList.add('open');
-    pinInput.focus();
-  });
-
-  function closeAdmin() {
-    overlay.classList.remove('open');
+    adminFooter.classList.add('hidden');
+    document.getElementById('pinInput').value = '';
+    document.getElementById('pinError').classList.add('hidden');
+    document.getElementById('saveMsg').classList.add('hidden');
   }
+  function closeAdmin() {
+    adminOverlay.classList.remove('open');
+    adminPin = '';
+  }
+  document.getElementById('adminBtn').addEventListener('click', openAdmin);
   document.getElementById('adminClose').addEventListener('click', closeAdmin);
   document.getElementById('cancelBtn').addEventListener('click', closeAdmin);
 
-  document.getElementById('pinSubmit').addEventListener('click', tryPin);
-  pinInput.addEventListener('keydown', e => { if (e.key === 'Enter') tryPin(); });
-
-  async function tryPin() {
-    const pin = pinInput.value.trim();
+  document.getElementById('pinSubmit').addEventListener('click', async () => {
+    const pin = document.getElementById('pinInput').value;
     if (!pin) return;
-
-    try {
-      const res = await fetch(WORKER_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pin, data: siteData })
-      });
-
-      if (res.status === 401) {
-        pinError.classList.remove('hidden');
-        return;
-      }
-      if (!res.ok) {
-        pinError.textContent = 'Server error. Try again.';
-        pinError.classList.remove('hidden');
-        return;
-      }
-
-      pinError.classList.add('hidden');
-      pinStep.classList.add('hidden');
-      editorStep.classList.remove('hidden');
-      fillEditor();
-    } catch (err) {
-      pinError.textContent = 'Network error connecting to Worker';
-      pinError.classList.remove('hidden');
-    }
-  }
-
-  function fillEditor() {
-    document.getElementById('editHero').value = siteData.hero || '';
-    document.getElementById('editEmail').value = (siteData.contact && siteData.contact.email) || '';
-    document.getElementById('editPhone').value = (siteData.contact && siteData.contact.phone) || '';
-    document.getElementById('editInstagram').value = (siteData.contact && siteData.contact.instagram) || '';
-    document.getElementById('editWhatsapp').value = (siteData.contact && siteData.contact.whatsapp) || '';
-    document.getElementById('editFacebook').value = (siteData.contact && siteData.contact.facebook) || '';
-
-    const testiContainer = document.getElementById('editTestimonials');
-    testiContainer.innerHTML = '';
-    (siteData.testimonials || []).forEach(t => {
-      testiContainer.appendChild(makeTestimonialBlock(t));
-    });
-
-    const container = document.getElementById('editCategories');
-    container.innerHTML = '';
-    (siteData.categories || []).forEach((cat, catIndex) => {
-      container.appendChild(makeCategoryBlock(cat, catIndex));
-    });
-
-    fillStylesEditor();
-    fillUxEditor();
-    renderAnalyticsSummary();
-  }
-
-  function fillUxEditor() {
-    const ux = getUx();
-    const layoutSel = document.getElementById('ux-testimonialsLayout');
-    if (layoutSel) layoutSel.value = ux.testimonialsLayout === 'vertical' ? 'vertical' : 'horizontal';
-
-    const box = document.getElementById('editUxFlags');
-    if (!box) return;
-    box.innerHTML = '';
-    Object.keys(UX_FLAG_LABELS).forEach(key => {
-      const label = document.createElement('label');
-      label.className = 'flex items-start gap-2 border border-brand-border rounded-lg p-2 bg-brand-dark/50 cursor-pointer';
-      const checked = ux[key] !== false;
-      label.innerHTML = `
-        <input type="checkbox" class="ux-flag mt-0.5 shrink-0" data-ux-key="${key}" ${checked ? 'checked' : ''} />
-        <span class="text-[11px] text-brand-light leading-snug">${UX_FLAG_LABELS[key]}</span>
-      `;
-      box.appendChild(label);
-    });
-  }
-
-  function collectUxFromEditor() {
-    const ux = {};
-    const layoutSel = document.getElementById('ux-testimonialsLayout');
-    ux.testimonialsLayout = (layoutSel && layoutSel.value === 'vertical') ? 'vertical' : 'horizontal';
-    document.querySelectorAll('#editUxFlags .ux-flag').forEach(cb => {
-      const key = cb.dataset.uxKey;
-      if (key) ux[key] = !!cb.checked;
-    });
-    return ux;
-  }
-
-  function fillStylesEditor() {
-    const container = document.getElementById('editStyles');
-    container.innerHTML = '';
-    const savedStyles = siteData.styles || {};
-
-    Object.keys(STYLE_KEYS).forEach(key => {
-      const cfg = STYLE_KEYS[key];
-      const saved = savedStyles[key] || {};
-      const fontSize = saved.fontSize || cfg.defaultFontSize;
-      const align = saved.textAlign || cfg.defaultAlign;
-      const content = (saved.content != null && saved.content !== '') ? saved.content : cfg.defaultContent;
-
-      const row = document.createElement('div');
-      row.className = 'border border-brand-border rounded-lg p-3 space-y-2 bg-brand-dark/50';
-      row.dataset.styleKey = key;
-      row.innerHTML = `
-        <span class="text-xs text-brand-gold block font-medium">${escapeHtml(cfg.label)}</span>
-        <textarea class="admin-input style-content font-sans" rows="2">${escapeHtml(content)}</textarea>
-        <div class="flex gap-2 items-center">
-          <input type="text" class="admin-input style-fontsize flex-1" value="${escapeHtml(fontSize)}" placeholder="Font size (e.g. 1rem)" />
-          <select class="admin-input style-align" style="max-width:120px">
-            <option value="left"${align === 'left' ? ' selected' : ''}>Left</option>
-            <option value="center"${align === 'center' ? ' selected' : ''}>Center</option>
-            <option value="right"${align === 'right' ? ' selected' : ''}>Right</option>
-          </select>
-        </div>
-      `;
-      container.appendChild(row);
-    });
-  }
-
-  // ============================================================
-  // LOCAL ANALYTICS (this-device-only; no visitor tracking backend)
-  // ============================================================
-  const ANALYTICS_KEY = 'kaad-analytics';
-
-  function loadAnalytics() {
-    try {
-      return JSON.parse(localStorage.getItem(ANALYTICS_KEY)) || { pageViews: 0, events: {} };
-    } catch (e) {
-      return { pageViews: 0, events: {} };
-    }
-  }
-
-  function trackAnalyticsEvent(key) {
-    try {
-      const data = loadAnalytics();
-      data.events[key] = (data.events[key] || 0) + 1;
-      localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data));
-    } catch (e) {}
-  }
-
-  function trackPageView() {
-    try {
-      const data = loadAnalytics();
-      data.pageViews = (data.pageViews || 0) + 1;
-      localStorage.setItem(ANALYTICS_KEY, JSON.stringify(data));
-    } catch (e) {}
-  }
-
-  function renderAnalyticsSummary() {
-    const el = document.getElementById('analyticsSummary');
-    if (!el) return;
-    const data = loadAnalytics();
-    const albumEntries = Object.entries(data.events || {})
-      .filter(([k]) => k.startsWith('album:'))
-      .map(([k, v]) => [k.replace('album:', ''), v])
-      .sort((a, b) => b[1] - a[1]);
-
-    let html = `<div class="border border-brand-border rounded-lg p-3"><p class="text-brand-muted">Page views (device)</p><p class="text-lg font-medium text-brand-gold">${data.pageViews || 0}</p></div>`;
-    if (albumEntries.length) {
-      html += `<div class="border border-brand-border rounded-lg p-3"><p class="text-brand-muted">Top album (device)</p><p class="text-sm font-medium text-brand-gold truncate">${escapeHtml(albumEntries[0][0])} (${albumEntries[0][1]})</p></div>`;
-    } else {
-      html += `<div class="border border-brand-border rounded-lg p-3 flex items-center justify-center"><p class="text-brand-muted">No album views yet</p></div>`;
-    }
-    el.innerHTML = html;
-  }
-
-  document.getElementById('resetAnalyticsBtn').addEventListener('click', () => {
-    try { localStorage.removeItem(ANALYTICS_KEY); } catch (e) {}
-    renderAnalyticsSummary();
+    // Verify by attempting a no-op path: we unlock UI and validate on save (Worker enforces PIN)
+    // For better UX we still require non-empty PIN; Worker rejects wrong PIN on save.
+    adminPin = pin;
+    pinStep.classList.add('hidden');
+    editorStep.classList.remove('hidden');
+    adminFooter.classList.remove('hidden');
+    fillAdminForm();
+  });
+  document.getElementById('pinInput').addEventListener('keydown', e => {
+    if (e.key === 'Enter') document.getElementById('pinSubmit').click();
   });
 
-  trackPageView();
-
-  function moveElement(el, direction) {
-    if (direction === 'up' && el.previousElementSibling) {
-      el.parentNode.insertBefore(el, el.previousElementSibling);
-    } else if (direction === 'down' && el.nextElementSibling) {
-      el.parentNode.insertBefore(el.nextElementSibling, el);
-    }
-  }
-
-  function makeMoveButtons(getTarget) {
-    const wrap = document.createElement('div');
-    wrap.className = 'flex flex-col gap-0.5 shrink-0';
-    wrap.innerHTML = `
-      <button type="button" class="admin-move-btn move-up" title="Move up" aria-label="Move up">
-        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
-      </button>
-      <button type="button" class="admin-move-btn move-down" title="Move down" aria-label="Move down">
-        <svg viewBox="0 0 24 24" width="11" height="11" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
-      </button>
-    `;
-    wrap.querySelector('.move-up').addEventListener('click', () => moveElement(getTarget(), 'up'));
-    wrap.querySelector('.move-down').addEventListener('click', () => moveElement(getTarget(), 'down'));
-    return wrap;
-  }
-
-  function makeCategoryBlock(cat, catIndex) {
-    const block = document.createElement('div');
-    block.className = 'border border-brand-border rounded-lg p-3 space-y-3 bg-brand-dark/50';
-    block.dataset.catIndex = catIndex;
-
-    block.innerHTML = `
-      <div class="flex gap-2 items-center">
-        <input type="text" class="admin-input cat-name flex-1 font-medium" value="${escapeHtml(cat.name || '')}" placeholder="Album name" />
-        <button type="button" class="admin-btn-secondary text-xs px-3 remove-cat">Remove</button>
-      </div>
-      <div class="photos space-y-2"></div>
-      <button type="button" class="admin-btn-secondary text-xs w-full py-1.5 add-photo">+ Add Photo URL</button>
-    `;
-
-    const moveBtns = makeMoveButtons(() => block);
-    block.querySelector('.flex.gap-2.items-center').prepend(moveBtns);
-
-    const photosDiv = block.querySelector('.photos');
-    (cat.photos || []).forEach(photo => {
-      photosDiv.appendChild(makePhotoRow(photo));
+  document.querySelectorAll('.admin-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.admin-tab').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.admin-section').forEach(s => s.classList.remove('active'));
+      tab.classList.add('active');
+      document.querySelector('.admin-section[data-tab="' + tab.dataset.tab + '"]').classList.add('active');
     });
+  });
 
-    block.querySelector('.remove-cat').addEventListener('click', () => block.remove());
-    block.querySelector('.add-photo').addEventListener('click', () => {
-      photosDiv.appendChild(makePhotoRow({ url: '', name: '', instagram: '' }));
+  function fillAdminForm() {
+    const p = siteData.photographer || {};
+    document.getElementById('editStudioName').value = p.name || '';
+    document.getElementById('editTagline').value = p.tagline || '';
+    document.getElementById('editHeroTitle').value = p.heroTitle || '';
+    document.getElementById('editHeroBio').value = p.bio || '';
+    document.getElementById('editHero').value = siteData.hero || '';
+    const a = siteData.album || {};
+    document.getElementById('editAlbumTitle').value = a.title || '';
+    document.getElementById('editAlbumDesc').value = a.description || '';
+    document.getElementById('editAlbumPhoto').value = a.photoUrl || '';
+    document.getElementById('editAlbumUrl').value = a.url || '';
+    const about = siteData.about || {};
+    document.getElementById('editAboutHeading').value = about.heading || '';
+    document.getElementById('editAboutText').value = about.text || '';
+    document.getElementById('editAboutSide').value = about.side || '';
+    const c = siteData.contact || {};
+    document.getElementById('editEmail').value = c.email || '';
+    document.getElementById('editPhone').value = c.phone || '';
+    document.getElementById('editWhatsapp').value = c.whatsapp || '';
+    document.getElementById('editInstagram').value = c.instagram || '';
+    document.getElementById('editFacebook').value = c.facebook || '';
+    document.getElementById('editAddress').value = c.address || '';
+    document.getElementById('editHours').value = c.workingHours || '';
+    document.getElementById('ux-testimonialsLayout').value = getUx().testimonialsLayout || 'horizontal';
+    const flags = document.getElementById('editUxFlags');
+    flags.innerHTML = '';
+    Object.keys(UX_FLAG_LABELS).forEach(key => {
+      const lab = document.createElement('label');
+      lab.className = 'ux-flag';
+      const checked = getUx()[key] !== false;
+      lab.innerHTML = '<input type="checkbox" data-ux="' + key + '"' + (checked ? ' checked' : '') + '/> ' + escapeHtml(UX_FLAG_LABELS[key]);
+      flags.appendChild(lab);
     });
-
-    return block;
+    renderEditCategories();
+    renderEditServices();
+    renderEditTerms();
+    renderEditTestimonials();
   }
 
-  function makePhotoRow(photo) {
-    const row = document.createElement('div');
-    row.className = 'border border-brand-border/60 rounded-lg p-2 space-y-1.5';
-    row.innerHTML = `
-      <div class="flex gap-2 items-center">
-        <input type="url" class="admin-input photo-url flex-1" value="${escapeHtml(photo.url || '')}" placeholder="Photo Source URL" />
-        <input type="text" class="admin-input photo-name" style="max-width:130px" value="${escapeHtml(photo.name || '')}" placeholder="Photo caption" />
-        <button type="button" class="admin-btn-secondary text-xs px-2.5 py-2 remove-photo">×</button>
-      </div>
-      <input type="url" class="admin-input photo-instagram" value="${escapeHtml(photo.instagram || '')}" placeholder="Original Instagram post URL (optional)" />
-    `;
-    const moveBtns = makeMoveButtons(() => row);
-    row.querySelector('.flex.gap-2.items-center').prepend(moveBtns);
-
-    row.querySelector('.remove-photo').addEventListener('click', () => row.remove());
-    return row;
+  function renderEditCategories() {
+    const root = document.getElementById('editCategories');
+    root.innerHTML = '';
+    (siteData.categories || []).forEach((cat, ci) => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML = '<input class="admin-input cat-name" placeholder="Album name" value="' + escapeHtml(cat.name || '') + '" />' +
+        '<div class="photos"></div>' +
+        '<button type="button" class="admin-btn-secondary add-photo" style="margin-top:0.35rem">+ Photo</button> ' +
+        '<button type="button" class="admin-btn-secondary remove-cat" style="margin-top:0.35rem">Remove album</button>';
+      const photosEl = block.querySelector('.photos');
+      (cat.photos || []).forEach(ph => {
+        const row = document.createElement('div');
+        row.className = 'mini-row';
+        row.innerHTML = '<input class="admin-input photo-url" placeholder="Image URL" value="' + escapeHtml(ph.url || '') + '" />' +
+          '<input class="admin-input photo-name" placeholder="Caption" value="' + escapeHtml(ph.name || '') + '" />' +
+          '<button type="button" class="admin-btn-secondary rm-photo">×</button>';
+        row.querySelector('.rm-photo').onclick = () => row.remove();
+        photosEl.appendChild(row);
+      });
+      block.querySelector('.add-photo').onclick = () => {
+        const row = document.createElement('div');
+        row.className = 'mini-row';
+        row.innerHTML = '<input class="admin-input photo-url" placeholder="Image URL" />' +
+          '<input class="admin-input photo-name" placeholder="Caption" />' +
+          '<button type="button" class="admin-btn-secondary rm-photo">×</button>';
+        row.querySelector('.rm-photo').onclick = () => row.remove();
+        photosEl.appendChild(row);
+      };
+      block.querySelector('.remove-cat').onclick = () => block.remove();
+      root.appendChild(block);
+    });
   }
 
   document.getElementById('addCategory').addEventListener('click', () => {
-    const container = document.getElementById('editCategories');
-    container.appendChild(makeCategoryBlock({ name: 'New Album', photos: [] }, container.children.length));
+    if (!siteData.categories) siteData.categories = [];
+    siteData.categories.push({ name: 'New album', photos: [] });
+    renderEditCategories();
   });
 
-  document.getElementById('addTestimonial').addEventListener('click', () => {
-    const container = document.getElementById('editTestimonials');
-    container.appendChild(makeTestimonialBlock({ name: '', quote: '', instagram: '', avatar: '' }));
-  });
-
-  function makeTestimonialBlock(t) {
-    const block = document.createElement('div');
-    block.className = 'border border-brand-border rounded-lg p-3 space-y-2 bg-brand-dark/50';
-    block.innerHTML = `
-      <div class="flex gap-2 items-center">
-        <input type="text" class="admin-input testi-name flex-1" value="${escapeHtml(t.name || '')}" placeholder="Name" />
-        <button type="button" class="admin-btn-secondary text-xs px-3 remove-testimonial">Remove</button>
-      </div>
-      <textarea class="admin-input testi-quote font-sans" rows="2" placeholder="Testimonial / comment">${escapeHtml(t.quote || '')}</textarea>
-      <input type="url" class="admin-input testi-instagram" value="${escapeHtml(t.instagram || '')}" placeholder="Instagram link (post or profile/home page, optional)" />
-      <input type="url" class="admin-input testi-avatar" value="${escapeHtml(t.avatar || '')}" placeholder="Photo/avatar URL (optional)" />
-    `;
-    const moveBtns = makeMoveButtons(() => block);
-    block.querySelector('.flex.gap-2.items-center').prepend(moveBtns);
-
-    block.querySelector('.remove-testimonial').addEventListener('click', () => block.remove());
-    return block;
+  function renderEditServices() {
+    const root = document.getElementById('editServices');
+    root.innerHTML = '';
+    (siteData.services || []).forEach(s => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<input class="admin-input svc-title" placeholder="Title" value="' + escapeHtml(s.title || '') + '" />' +
+        '<input class="admin-input svc-tagline" placeholder="Tagline" value="' + escapeHtml(s.tagline || '') + '" />' +
+        '<input class="admin-input svc-price" placeholder="Price" value="' + escapeHtml(s.price || '') + '" />' +
+        '<textarea class="admin-input svc-desc" rows="2" placeholder="Description">' + escapeHtml(s.description || '') + '</textarea>' +
+        '<textarea class="admin-input svc-features" rows="2" placeholder="Features (one per line)">' + escapeHtml((s.features || []).join('\n')) + '</textarea>' +
+        '<button type="button" class="admin-btn-secondary rm-svc">Remove</button>';
+      block.querySelector('.rm-svc').onclick = () => block.remove();
+      root.appendChild(block);
+    });
   }
+  document.getElementById('addService').addEventListener('click', () => {
+    siteData.services = siteData.services || [];
+    siteData.services.push({ id: 's' + Date.now(), title: 'New service', tagline: '', price: '', description: '', features: [] });
+    renderEditServices();
+  });
+
+  function renderEditTerms() {
+    const root = document.getElementById('editTerms');
+    root.innerHTML = '';
+    (siteData.terms || []).forEach(t => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<input class="admin-input term-title" placeholder="Title" value="' + escapeHtml(t.title || '') + '" />' +
+        '<textarea class="admin-input term-content" rows="2">' + escapeHtml(t.content || '') + '</textarea>' +
+        '<button type="button" class="admin-btn-secondary rm-term">Remove</button>';
+      block.querySelector('.rm-term').onclick = () => block.remove();
+      root.appendChild(block);
+    });
+  }
+  document.getElementById('addTerm').addEventListener('click', () => {
+    siteData.terms = siteData.terms || [];
+    siteData.terms.push({ id: 't' + Date.now(), title: 'New term', content: '' });
+    renderEditTerms();
+  });
+
+  function renderEditTestimonials() {
+    const root = document.getElementById('editTestimonials');
+    root.innerHTML = '';
+    (siteData.testimonials || []).forEach(t => {
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<input class="admin-input t-name" placeholder="Name" value="' + escapeHtml(t.name || '') + '" />' +
+        '<textarea class="admin-input t-quote" rows="2">' + escapeHtml(t.quote || '') + '</textarea>' +
+        '<input class="admin-input t-instagram" placeholder="Instagram URL" value="' + escapeHtml(t.instagram || '') + '" />' +
+        '<button type="button" class="admin-btn-secondary rm-t">Remove</button>';
+      block.querySelector('.rm-t').onclick = () => block.remove();
+      root.appendChild(block);
+    });
+  }
+  document.getElementById('addTestimonial').addEventListener('click', () => {
+    siteData.testimonials = siteData.testimonials || [];
+    siteData.testimonials.push({ name: '', quote: '', instagram: '' });
+    renderEditTestimonials();
+  });
 
   document.getElementById('saveBtn').addEventListener('click', async () => {
-    const pin = pinInput.value.trim();
-
-    const newData = {
+    const saveMsg = document.getElementById('saveMsg');
+    const pin = adminPin || document.getElementById('pinInput').value;
+    const newData = mergeDefaults({
       hero: document.getElementById('editHero').value.trim(),
+      photographer: {
+        name: document.getElementById('editStudioName').value.trim(),
+        tagline: document.getElementById('editTagline').value.trim(),
+        heroTitle: document.getElementById('editHeroTitle').value.trim(),
+        bio: document.getElementById('editHeroBio').value.trim(),
+      },
+      album: {
+        title: document.getElementById('editAlbumTitle').value.trim(),
+        description: document.getElementById('editAlbumDesc').value.trim(),
+        photoUrl: document.getElementById('editAlbumPhoto').value.trim(),
+        url: document.getElementById('editAlbumUrl').value.trim(),
+      },
+      about: {
+        heading: document.getElementById('editAboutHeading').value.trim(),
+        text: document.getElementById('editAboutText').value.trim(),
+        side: document.getElementById('editAboutSide').value.trim(),
+      },
       contact: {
         email: document.getElementById('editEmail').value.trim(),
         phone: document.getElementById('editPhone').value.trim(),
-        instagram: document.getElementById('editInstagram').value.trim(),
         whatsapp: document.getElementById('editWhatsapp').value.trim(),
-        facebook: document.getElementById('editFacebook').value.trim()
+        instagram: document.getElementById('editInstagram').value.trim(),
+        facebook: document.getElementById('editFacebook').value.trim(),
+        address: document.getElementById('editAddress').value.trim(),
+        workingHours: document.getElementById('editHours').value.trim(),
       },
       categories: [],
+      services: [],
+      terms: [],
       testimonials: [],
-      styles: {},
-      ux: collectUxFromEditor()
-    };
-
-    document.querySelectorAll('#editTestimonials > div').forEach(block => {
-      const name = block.querySelector('.testi-name').value.trim();
-      const quote = block.querySelector('.testi-quote').value.trim();
-      const instagram = block.querySelector('.testi-instagram').value.trim();
-      const avatar = block.querySelector('.testi-avatar').value.trim();
-      if (!name && !quote) return;
-      newData.testimonials.push({ name, quote, instagram, avatar });
+      styles: siteData.styles || {},
+      ux: Object.assign({}, siteData.ux || {}),
     });
 
-    document.querySelectorAll('#editStyles > div').forEach(row => {
-      const key = row.dataset.styleKey;
-      const content = row.querySelector('.style-content').value;
-      const fontSize = row.querySelector('.style-fontsize').value.trim();
-      const textAlign = row.querySelector('.style-align').value;
-      newData.styles[key] = {
-        content,
-        fontSize: fontSize || STYLE_KEYS[key].defaultFontSize,
-        textAlign
-      };
+    newData.ux.testimonialsLayout = document.getElementById('ux-testimonialsLayout').value;
+    document.querySelectorAll('#editUxFlags input[data-ux]').forEach(cb => {
+      newData.ux[cb.getAttribute('data-ux')] = cb.checked;
     });
 
-    document.querySelectorAll('#editCategories > div').forEach(block => {
+    document.querySelectorAll('#editCategories > .list-block').forEach(block => {
       const name = block.querySelector('.cat-name').value.trim();
       if (!name) return;
       const photos = [];
-      block.querySelectorAll('.photos > div').forEach(row => {
+      block.querySelectorAll('.photos .mini-row').forEach(row => {
         const url = row.querySelector('.photo-url').value.trim();
         const pname = row.querySelector('.photo-name').value.trim();
-        const pinsta = row.querySelector('.photo-instagram').value.trim();
-        if (url) photos.push({ url, name: pname, instagram: pinsta });
+        if (url) photos.push({ url, name: pname });
       });
       newData.categories.push({ name, photos });
     });
 
+    document.querySelectorAll('#editServices > .list-block').forEach(block => {
+      newData.services.push({
+        id: 's' + Math.random().toString(36).slice(2, 8),
+        title: block.querySelector('.svc-title').value.trim(),
+        tagline: block.querySelector('.svc-tagline').value.trim(),
+        price: block.querySelector('.svc-price').value.trim(),
+        description: block.querySelector('.svc-desc').value.trim(),
+        features: block.querySelector('.svc-features').value.split('\n').map(x => x.trim()).filter(Boolean),
+      });
+    });
+
+    document.querySelectorAll('#editTerms > .list-block').forEach(block => {
+      newData.terms.push({
+        id: 't' + Math.random().toString(36).slice(2, 8),
+        title: block.querySelector('.term-title').value.trim(),
+        content: block.querySelector('.term-content').value.trim(),
+      });
+    });
+
+    document.querySelectorAll('#editTestimonials > .list-block').forEach(block => {
+      newData.testimonials.push({
+        name: block.querySelector('.t-name').value.trim(),
+        quote: block.querySelector('.t-quote').value.trim(),
+        instagram: block.querySelector('.t-instagram').value.trim(),
+      });
+    });
+
+    // keep style content in sync for older fields
+    newData.styles = newData.styles || {};
+    newData.styles.navTitle = Object.assign({}, newData.styles.navTitle, { content: newData.photographer.name });
+    newData.styles.aboutHeading = Object.assign({}, newData.styles.aboutHeading, { content: newData.about.heading });
+    newData.styles.aboutText = Object.assign({}, newData.styles.aboutText, { content: newData.about.text });
+
     saveMsg.classList.add('hidden');
     try {
       const res = await fetch(WORKER_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ pin, data: newData })
+        body: JSON.stringify({ pin, data: newData }),
       });
-
       const result = await res.json();
       if (!res.ok) {
         saveMsg.textContent = result.error || 'Save failed';
-        saveMsg.classList.remove('hidden');
         saveMsg.style.color = '#f87171';
+        saveMsg.classList.remove('hidden');
+        if ((result.error || '').toLowerCase().includes('pin')) {
+          document.getElementById('pinError').classList.remove('hidden');
+          pinStep.classList.remove('hidden');
+          editorStep.classList.add('hidden');
+          adminFooter.classList.add('hidden');
+        }
         return;
       }
-
-      siteData = newData;
-      if (!siteData.ux) siteData.ux = {};
-      applyStyles();
-      applyUxSettings();
+      siteData = mergeDefaults(newData);
+      applyStudioTexts();
       if (siteData.hero) {
-        const heroEl = document.getElementById('heroImg');
-        heroEl.src = resolveImageUrl(siteData.hero);
+        document.getElementById('heroImg').src = resolveImageUrl(siteData.hero);
         document.getElementById('ogImageMeta').setAttribute('content', resolveImageUrl(siteData.hero));
-        const uxHero = getUx();
-        if (uxHero.heroKenBurns && !prefersReducedMotion()) heroEl.classList.add('ken-burns');
-        else heroEl.classList.remove('ken-burns');
-        if (uxHero.heroWave && !prefersReducedMotion()) heroEl.classList.add('hero-wave');
-        else heroEl.classList.remove('hero-wave');
       }
-
+      renderAlbum();
+      renderServices();
+      renderTerms();
       renderContactLinks();
-
       renderCategoryNav();
-      if (siteData.categories.length) renderGallery(siteData.categories.length > 1 ? ALL_CATEGORY : siteData.categories[0].name);
+      const cats = siteData.categories || [];
+      if (cats.length) renderGallery(cats.length > 1 ? ALL_CATEGORY : cats[0].name);
       renderTestimonials();
-
-      saveMsg.textContent = 'Changes saved & published successfully!';
+      saveMsg.textContent = 'Saved & published';
       saveMsg.style.color = '#4ade80';
       saveMsg.classList.remove('hidden');
-
-      setTimeout(closeAdmin, 1200);
+      setTimeout(closeAdmin, 1000);
     } catch (err) {
       saveMsg.textContent = 'Network error saving changes';
       saveMsg.style.color = '#f87171';
-      saveMsg.classList.add('hidden');
+      saveMsg.classList.remove('hidden');
     }
   });
 
-  function escapeHtml(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/"/g, '&quot;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-  }
-
-  // ============================================================
-  // UX INIT / APPLY (defaults + siteData.ux from admin)
-  // ============================================================
-  let navShrinkBound = false;
-  let sectionRevealDone = false;
-
-  function applyUxSettings() {
-    const ux = getUx();
-
-    document.documentElement.classList.toggle('ux-focus-rings', !!ux.focusRings);
-    document.documentElement.classList.toggle('fluid-site', ux.fluidSite !== false);
-    const home = document.getElementById('home');
-    const gal = document.getElementById('gallerySection');
-    if (home) home.classList.toggle('hero-fluid', ux.fluidSite !== false);
-    if (gal) gal.classList.toggle('fluid-blend-top', ux.fluidSite !== false);
-
-    const pill = document.getElementById('navPill');
-    if (pill) {
-      if (ux.navShrinkOnScroll) {
-        if (!navShrinkBound) {
-          navShrinkBound = true;
-          window.addEventListener('scroll', () => {
-            if (!getUx().navShrinkOnScroll) {
-              pill.classList.remove('nav-compact');
-              return;
-            }
-            pill.classList.toggle('nav-compact', window.scrollY > 40);
-          }, { passive: true });
-        }
-        pill.classList.toggle('nav-compact', window.scrollY > 40);
-      } else {
-        pill.classList.remove('nav-compact');
-      }
-    }
-
-    const header = document.getElementById('galleryHeader');
-    if (header) header.classList.toggle('sticky-cats', !!ux.galleryStickyCategories);
-
-    document.querySelectorAll('#scrollTopBtn, #adminBtn').forEach(el => {
-      el.classList.toggle('ux-fab-scale', !!ux.fabHoverScale);
-    });
-
-    const heroEl = document.getElementById('heroImg');
-    if (heroEl) {
-      const hasSrc = !!heroEl.getAttribute('src');
-      if (ux.heroKenBurns && !prefersReducedMotion() && hasSrc) heroEl.classList.add('ken-burns');
-      else heroEl.classList.remove('ken-burns');
-      if (ux.heroWave && !prefersReducedMotion() && hasSrc) heroEl.classList.add('hero-wave');
-      else heroEl.classList.remove('hero-wave');
-    }
-
-    if (!sectionRevealDone) {
-      sectionRevealDone = true;
-      if (ux.sectionFadeInOnScroll && 'IntersectionObserver' in window && !prefersReducedMotion()) {
-        const revealObserver = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add('is-visible');
-              revealObserver.unobserve(entry.target);
-            }
-          });
-        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.12 });
-        document.querySelectorAll('.ux-reveal').forEach(el => revealObserver.observe(el));
-      } else {
-        document.querySelectorAll('.ux-reveal').forEach(el => el.classList.add('is-visible'));
-      }
-    }
-  }
-
-  // Initialize
-  applyUxSettings();
-  loadSite();
+  loadSiteData();
+})();
 </script>
 </body>
 </html>
