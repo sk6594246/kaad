@@ -428,8 +428,8 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
       <h1 id="txt-heroTitle">Capturing Unforgettable Moments</h1>
       <p id="txt-heroBio">Visual storytelling across editorial, landscape, and portrait work.</p>
       <div class="hero-actions">
-        <a href="#gallery" class="btn btn-primary">View gallery</a>
-        <a href="#contact" class="btn btn-ghost">Book a session</a>
+        <a href="#gallery" class="btn btn-primary" id="txt-ctaGallery">View gallery</a>
+        <a href="#contact" class="btn btn-ghost" id="txt-ctaContact">Book a session</a>
       </div>
     </div>
   </section>
@@ -437,7 +437,7 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   <!-- ALBUM (featured photo + link) -->
   <section id="album" class="section">
     <div class="container">
-      <p class="section-label">Featured album</p>
+      <p class="section-label" id="txt-albumLabel">Featured album</p>
       <h2 class="section-title" id="txt-albumTitle">Client portfolio album</h2>
       <p class="section-sub" id="txt-albumSub">Open the featured frame to view the full linked gallery.</p>
       <div class="album-card glass" style="padding:1.25rem">
@@ -450,7 +450,7 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
         <div>
           <h3 id="txt-albumCardTitle" class="brand-title" style="font-size:1.5rem;margin-bottom:0.75rem">Official portfolio album</h3>
           <p id="txt-albumCardText" style="color:var(--text-muted);margin-bottom:1.25rem">High-resolution selections delivered via shared album link.</p>
-          <a id="albumCta" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Open full album</a>
+          <a id="albumCta" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><span id="txt-ctaAlbum">Open full album</span></a>
         </div>
       </div>
     </div>
@@ -459,20 +459,20 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   <!-- GALLERY -->
   <section id="gallery" class="section" style="border-top:1px solid var(--border-color)">
     <div class="container">
-      <p class="section-label">Gallery</p>
+      <p class="section-label" id="txt-galleryLabel">Gallery</p>
       <h2 class="section-title" id="txt-galleryHeading">Curated work</h2>
       <div class="cat-bar" id="categoryNav"></div>
       <div class="gallery-grid" id="galleryGrid"></div>
-      <p id="galleryEmpty" class="hidden">No photographs in this collection yet.</p>
+      <p id="galleryEmpty" class="hidden"><span id="txt-galleryEmpty">No photographs in this collection yet.</span></p>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="section" style="border-top:1px solid var(--border-color)">
     <div class="container">
-      <p class="section-label">Services</p>
-      <h2 class="section-title">What I offer</h2>
-      <p class="section-sub">Session packages — fully configurable in admin.</p>
+      <p class="section-label" id="txt-servicesLabel">Services</p>
+      <h2 class="section-title" id="txt-servicesHeading">What I offer</h2>
+      <p class="section-sub" id="txt-servicesSub">Session packages — fully configurable in admin.</p>
       <div class="services-grid" id="servicesGrid"></div>
     </div>
   </section>
@@ -480,8 +480,8 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   <!-- TERMS -->
   <section id="terms" class="section" style="border-top:1px solid var(--border-color)">
     <div class="container">
-      <p class="section-label">Terms</p>
-      <h2 class="section-title">Working together</h2>
+      <p class="section-label" id="txt-termsLabel">Terms</p>
+      <h2 class="section-title" id="txt-termsHeading">Working together</h2>
       <div class="terms-list" id="termsList"></div>
     </div>
   </section>
@@ -490,7 +490,7 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   <section id="about" class="section" style="border-top:1px solid var(--border-color)">
     <div class="container about-grid">
       <div>
-        <p class="section-label">About</p>
+        <p class="section-label" id="txt-aboutLabel">About</p>
         <h2 class="section-title" id="txt-aboutHeading">The quiet search for quiet light</h2>
         <p id="txt-aboutText" style="color:var(--text-muted)">A visual storyteller working across editorial, landscape, and portrait work.</p>
       </div>
@@ -503,8 +503,8 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   <!-- TESTIMONIALS -->
   <section id="testimonials" class="section" style="border-top:1px solid var(--border-color)">
     <div class="container">
-      <p class="section-label">Client stories</p>
-      <h2 class="section-title">Kind words</h2>
+      <p class="section-label" id="txt-testimonialsLabel">Client stories</p>
+      <h2 class="section-title" id="txt-testimonialsHeading">Kind words</h2>
       <div id="testimonialsRoot"></div>
     </div>
   </section>
@@ -513,8 +513,8 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   <section id="contact" class="section" style="border-top:1px solid var(--border-color)">
     <div class="container contact-grid">
       <div>
-        <p class="section-label">Contact</p>
-        <h2 class="section-title">Let's create</h2>
+        <p class="section-label" id="txt-contactLabel">Contact</p>
+        <h2 class="section-title" id="txt-contactHeading">Let's create</h2>
         <div class="contact-meta" style="margin-top:1rem">
           <button type="button" id="copyEmailBtn"><span>✉</span> <span id="dispEmail">email</span></button>
           <button type="button" id="copyPhoneBtn"><span>☎</span> <span id="dispPhone">phone</span></button>
@@ -526,15 +526,15 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
         </div>
       </div>
       <form class="glass contact-form" id="contactForm" style="padding:1.5rem" onsubmit="return false;">
-        <label>Name</label>
+        <label id="txt-formLabelName">Name</label>
         <input id="cfName" type="text" placeholder="Your name" required />
-        <label>Email</label>
+        <label id="txt-formLabelEmail">Email</label>
         <input id="cfEmail" type="email" placeholder="you@email.com" required />
-        <label>Service interest</label>
+        <label id="txt-formLabelService">Service interest</label>
         <select id="cfService"><option value="">Select…</option></select>
-        <label>Message</label>
+        <label id="txt-formLabelMessage">Message</label>
         <textarea id="cfMessage" placeholder="Tell me about your session"></textarea>
-        <button type="submit" class="btn btn-primary" id="cfSubmit">Send enquiry</button>
+        <button type="submit" class="btn btn-primary" id="cfSubmit"><span id="txt-ctaSubmit">Send enquiry</span></button>
       </form>
     </div>
   </section>
@@ -577,11 +577,12 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
         <p style="color:var(--text-muted);font-size:0.9rem;margin-bottom:1rem">Enter admin PIN to unlock.</p>
         <input id="pinInput" class="admin-input" type="password" placeholder="••••" autocomplete="off" />
         <button id="pinSubmit" class="admin-btn" style="width:100%">Unlock</button>
-        <p id="pinError" class="hidden" style="color:#f87171;font-size:0.8rem;margin-top:0.75rem">Invalid PIN</p>
+        <p id="pinError" class="hidden" style="color:#f87171;font-size:0.8rem;margin-top:0.75rem">Invalid PIN — editor stays locked</p>
       </div>
       <div id="editorStep" class="hidden">
         <div class="admin-tabs" id="adminTabs">
           <button type="button" class="admin-tab active" data-tab="studio">Studio</button>
+          <button type="button" class="admin-tab" data-tab="texts">Texts</button>
           <button type="button" class="admin-tab" data-tab="album">Album</button>
           <button type="button" class="admin-tab" data-tab="gallery">Gallery</button>
           <button type="button" class="admin-tab" data-tab="services">Services</button>
@@ -604,6 +605,17 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
           <textarea id="editHeroBio" class="admin-input" rows="3"></textarea>
           <label style="font-size:0.7rem;color:var(--text-muted)">Hero image URL</label>
           <input id="editHero" class="admin-input" type="url" placeholder="https://..." />
+        </div>
+
+        <div class="admin-section" data-tab="texts">
+          <h4>Headings &amp; text</h4>
+          <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:0.5rem;line-height:1.5">
+            Edit <strong>every</strong> on-page label, heading, body, and CTA below.<br/>
+            Format markers (wrap the words only):<br/>
+            <code>*text*</code> → <strong>bold</strong> &nbsp;·&nbsp; <code>_text_</code> → <em>italics</em><br/>
+            Example: <code>*KAAD* _PORTRAITS_</code> renders as <strong>KAAD</strong> <em>PORTRAITS</em>.<br/>Set <strong>Text size</strong> per field (preset or custom CSS size like <code>1.25rem</code>).
+          </p>
+          <div id="editTextFields"></div>
         </div>
 
         <div class="admin-section" data-tab="album">
@@ -699,7 +711,7 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
 
 <script>
 (function () {
-  const WORKER_URL = 'https://kaad.sk6594246.workers.dev';
+  const WORKER_URL = 'https://kaad-portraits.sk6594246.workers.dev';
   const ALL_CATEGORY = '__ALL__';
 
   const UX_DEFAULTS = {
@@ -802,7 +814,106 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
     showUxToast._t = setTimeout(() => toast.classList.remove('show'), 1800);
   }
 
+
+  const TEXT_KEYS = {
+    navTitle:            { label: 'Nav — studio name', defaultContent: 'KAAD Portraits' },
+    navTagline:          { label: 'Nav — tagline', defaultContent: 'Photography' },
+    heroEyebrow:         { label: 'Hero — eyebrow', defaultContent: 'Portfolio' },
+    heroTitle:           { label: 'Hero — title', defaultContent: 'Capturing Unforgettable Moments' },
+    heroBio:             { label: 'Hero — bio', defaultContent: 'Visual storytelling across editorial, landscape, and portrait work.' },
+    ctaGallery:          { label: 'Hero — CTA (gallery)', defaultContent: 'View gallery' },
+    ctaContact:          { label: 'Hero — CTA (contact)', defaultContent: 'Book a session' },
+    albumLabel:          { label: 'Album — section label', defaultContent: 'Featured album' },
+    albumTitle:          { label: 'Album — heading', defaultContent: 'Client portfolio album' },
+    albumSub:            { label: 'Album — subtitle', defaultContent: 'Open the featured frame to view the full linked gallery.' },
+    albumCardTitle:      { label: 'Album — card title', defaultContent: 'Official portfolio album' },
+    albumCardText:       { label: 'Album — card text', defaultContent: 'High-resolution selections delivered via shared album link.' },
+    ctaAlbum:            { label: 'Album — CTA button', defaultContent: 'Open full album' },
+    galleryLabel:        { label: 'Gallery — label', defaultContent: 'Gallery' },
+    galleryHeading:      { label: 'Gallery — heading', defaultContent: 'Curated work' },
+    galleryEmpty:        { label: 'Gallery — empty state', defaultContent: 'No photographs in this collection yet.' },
+    servicesLabel:       { label: 'Services — label', defaultContent: 'Services' },
+    servicesHeading:     { label: 'Services — heading', defaultContent: 'What I offer' },
+    servicesSub:         { label: 'Services — subtitle', defaultContent: 'Session packages — fully configurable in admin.' },
+    termsLabel:          { label: 'Terms — label', defaultContent: 'Terms' },
+    termsHeading:        { label: 'Terms — heading', defaultContent: 'Working together' },
+    aboutLabel:          { label: 'About — label', defaultContent: 'About' },
+    aboutHeading:        { label: 'About — heading', defaultContent: 'The quiet *search* for quiet _light_' },
+    aboutText:           { label: 'About — body', defaultContent: 'A visual storyteller working across editorial, landscape, and portrait work.' },
+    aboutSide:           { label: 'About — side note', defaultContent: 'Every frame is tuned for mood, precision, and lasting delivery through shared albums.' },
+    testimonialsLabel:   { label: 'Stories — label', defaultContent: 'Client stories' },
+    testimonialsHeading: { label: 'Stories — heading', defaultContent: 'Kind words' },
+    contactLabel:        { label: 'Contact — label', defaultContent: 'Contact' },
+    contactHeading:      { label: 'Contact — heading', defaultContent: "Let's create" },
+    formLabelName:       { label: 'Contact form — Name label', defaultContent: 'Name' },
+    formLabelEmail:      { label: 'Contact form — Email label', defaultContent: 'Email' },
+    formLabelService:    { label: 'Contact form — Service label', defaultContent: 'Service interest' },
+    formLabelMessage:    { label: 'Contact form — Message label', defaultContent: 'Message' },
+    ctaSubmit:           { label: 'Contact form — submit button', defaultContent: 'Send enquiry' },
+    footerHeading:       { label: 'Footer — large title', defaultContent: 'PORTFOLIO' },
+    footerCopyright:     { label: 'Footer — copyright', defaultContent: '© 2026 Portfolio' },
+  };
+
+  function renderMiniMarkdown(raw) {
+    // *text* = bold, _text_ = italics (e.g. *KAAD* _PORTRAITS_)
+    let text = escapeHtml(raw == null ? '' : String(raw));
+    text = text.replace(/\*([^*]+)\*/g, '<strong>$1</strong>');
+    text = text.replace(/_([^_]+)_/g, '<em>$1</em>');
+    text = text.replace(/\n/g, '<br>');
+    return text;
+  }
+
+  function getTextContent(key) {
+    const cfg = TEXT_KEYS[key];
+    const saved = (siteData.styles && siteData.styles[key]) || {};
+    if (saved.content != null && String(saved.content).length) return String(saved.content);
+    // bridge from structured fields
+    const p = siteData.photographer || {};
+    const a = siteData.album || {};
+    const about = siteData.about || {};
+    const bridges = {
+      navTitle: p.name,
+      navTagline: p.tagline,
+      heroTitle: p.heroTitle,
+      heroBio: p.bio,
+      albumTitle: a.title,
+      albumSub: a.description,
+      albumCardTitle: a.title,
+      albumCardText: a.description,
+      aboutHeading: about.heading,
+      aboutText: about.text,
+      aboutSide: about.side,
+    };
+    if (bridges[key]) return bridges[key];
+    return cfg ? cfg.defaultContent : '';
+  }
+
+  function applyAllTexts() {
+    Object.keys(TEXT_KEYS).forEach(key => {
+      const el = document.getElementById('txt-' + key);
+      if (!el) return;
+      const content = getTextContent(key);
+      el.innerHTML = renderMiniMarkdown(content);
+      const saved = (siteData.styles && siteData.styles[key]) || {};
+      if (saved.fontSize && String(saved.fontSize).trim()) {
+        el.style.setProperty('font-size', String(saved.fontSize).trim(), 'important');
+      } else {
+        el.style.removeProperty('font-size');
+      }
+      if (saved.textAlign && String(saved.textAlign).trim()) {
+        el.style.setProperty('text-align', String(saved.textAlign).trim());
+      } else {
+        el.style.removeProperty('text-align');
+      }
+    });
+    const name = getTextContent('navTitle') || 'KAAD Portraits';
+    const plainName = String(name).replace(/\*/g, '').replace(/_/g, '');
+    document.getElementById('navLogoLetter').textContent = (plainName.trim()[0] || 'K').toUpperCase();
+    document.title = plainName;
+  }
+
   function mergeDefaults(data) {
+
     const d = data || {};
     d.photographer = Object.assign({ name: 'KAAD Portraits', tagline: 'Photography', heroTitle: '', bio: '' }, d.photographer || {});
     d.album = Object.assign({ title: '', description: '', photoUrl: '', url: '' }, d.album || {});
@@ -823,33 +934,14 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
   }
 
   function applyStudioTexts() {
-    const p = siteData.photographer || {};
-    const name = p.name || 'KAAD Portraits';
-    document.getElementById('txt-navTitle').textContent = name;
-    document.getElementById('txt-navTagline').textContent = p.tagline || 'Photography';
-    document.getElementById('navLogoLetter').textContent = (name.trim()[0] || 'K').toUpperCase();
-    document.title = name;
-    document.getElementById('txt-heroTitle').textContent = p.heroTitle || p.tagline || name;
-    document.getElementById('txt-heroBio').textContent = p.bio || '';
-    const about = siteData.about || {};
-    if (about.heading) document.getElementById('txt-aboutHeading').textContent = about.heading;
-    if (about.text) document.getElementById('txt-aboutText').textContent = about.text;
-    if (about.side) document.getElementById('txt-aboutSide').textContent = about.side;
-    // legacy style content fallbacks
-    const st = siteData.styles || {};
-    if (st.galleryHeading && st.galleryHeading.content) document.getElementById('txt-galleryHeading').textContent = st.galleryHeading.content;
-    if (st.footerHeading && st.footerHeading.content) document.getElementById('txt-footerHeading').textContent = st.footerHeading.content;
-    if (st.footerCopyright && st.footerCopyright.content) document.getElementById('txt-footerCopyright').textContent = st.footerCopyright.content;
+    applyAllTexts();
   }
 
   function renderAlbum() {
     const a = siteData.album || {};
     const photo = resolveImageUrl(a.photoUrl || siteData.hero || '');
     const link = a.url || '#';
-    document.getElementById('txt-albumTitle').textContent = a.title || 'Client portfolio album';
-    document.getElementById('txt-albumCardTitle').textContent = a.title || 'Official portfolio album';
-    document.getElementById('txt-albumCardText').textContent = a.description || 'High-resolution selections via shared album.';
-    document.getElementById('txt-albumSub').textContent = a.description || 'Open the featured frame to view the full linked gallery.';
+    // album titles/body come from styles via applyAllTexts(); structured album fields still drive photo/link
     const img = document.getElementById('albumFeatureImg');
     img.src = photo || '';
     img.style.display = photo ? 'block' : 'none';
@@ -868,8 +960,8 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
     (siteData.services || []).forEach(s => {
       const card = document.createElement('div');
       card.className = 'service-card glass';
-      const feats = (s.features || []).map(f => '<li>' + escapeHtml(f) + '</li>').join('');
-      card.innerHTML = '<div class="section-label">' + escapeHtml(s.tagline || 'Service') + '</div><h3>' + escapeHtml(s.title || '') + '</h3><div class="price">' + escapeHtml(s.price || '') + '</div><p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.75rem">' + escapeHtml(s.description || '') + '</p><ul>' + feats + '</ul>';
+      const feats = (s.features || []).map(f => '<li>' + renderMiniMarkdown(f) + '</li>').join('');
+      card.innerHTML = '<div class="section-label">' + renderMiniMarkdown(s.tagline || 'Service') + '</div><h3>' + renderMiniMarkdown(s.title || '') + '</h3><div class="price">' + escapeHtml(s.price || '') + '</div><p style="color:var(--text-muted);font-size:0.85rem;margin-bottom:0.75rem">' + renderMiniMarkdown(s.description || '') + '</p><ul>' + feats + '</ul>';
       grid.appendChild(card);
       const opt = document.createElement('option');
       opt.value = s.title || '';
@@ -884,7 +976,7 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
     (siteData.terms || []).forEach(t => {
       const el = document.createElement('div');
       el.className = 'term-item glass';
-      el.innerHTML = '<h3>' + escapeHtml(t.title || '') + '</h3><p>' + escapeHtml(t.content || '') + '</p>';
+      el.innerHTML = '<h3>' + renderMiniMarkdown(t.title || '') + '</h3><p>' + renderMiniMarkdown(t.content || '') + '</p>';
       list.appendChild(el);
     });
   }
@@ -971,7 +1063,7 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
     list.forEach(t => {
       const card = document.createElement('div');
       card.className = 't-card glass';
-      card.innerHTML = '<p class="quote">"' + escapeHtml(t.quote || '') + '"</p><div class="who">' + escapeHtml(t.name || '') + '</div>';
+      card.innerHTML = '<p class="quote">"' + renderMiniMarkdown(t.quote || '') + '"</p><div class="who">' + renderMiniMarkdown(t.name || '') + '</div>';
       wrap.appendChild(card);
     });
     root.appendChild(wrap);
@@ -1109,14 +1201,46 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
 
   document.getElementById('pinSubmit').addEventListener('click', async () => {
     const pin = document.getElementById('pinInput').value;
-    if (!pin) return;
-    // Verify by attempting a no-op path: we unlock UI and validate on save (Worker enforces PIN)
-    // For better UX we still require non-empty PIN; Worker rejects wrong PIN on save.
-    adminPin = pin;
-    pinStep.classList.add('hidden');
-    editorStep.classList.remove('hidden');
-    adminFooter.classList.remove('hidden');
-    fillAdminForm();
+    const pinError = document.getElementById('pinError');
+    const pinBtn = document.getElementById('pinSubmit');
+    pinError.classList.add('hidden');
+    if (!pin) {
+      pinError.textContent = 'Enter your admin PIN';
+      pinError.classList.remove('hidden');
+      return;
+    }
+    pinBtn.disabled = true;
+    pinBtn.textContent = 'Checking…';
+    try {
+      // Worker only accepts POST when PIN is correct (401 otherwise). Re-save current data as a verify probe.
+      const res = await fetch(WORKER_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ pin, data: siteData }),
+      });
+      const result = await res.json().catch(() => ({}));
+      if (!res.ok) {
+        pinError.textContent = result.error || 'Invalid PIN';
+        pinError.classList.remove('hidden');
+        adminPin = '';
+        pinStep.classList.remove('hidden');
+        editorStep.classList.add('hidden');
+        adminFooter.classList.add('hidden');
+        return;
+      }
+      adminPin = pin;
+      pinStep.classList.add('hidden');
+      editorStep.classList.remove('hidden');
+      adminFooter.classList.remove('hidden');
+      fillAdminForm();
+    } catch (err) {
+      pinError.textContent = 'Network error — could not verify PIN';
+      pinError.classList.remove('hidden');
+      adminPin = '';
+    } finally {
+      pinBtn.disabled = false;
+      pinBtn.textContent = 'Unlock';
+    }
   });
   document.getElementById('pinInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') document.getElementById('pinSubmit').click();
@@ -1131,7 +1255,85 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
     });
   });
 
+  function fillTextFields() {
+    const root = document.getElementById('editTextFields');
+    if (!root) return;
+    root.innerHTML = '';
+    const sizePresets = [
+      ['', 'Default (theme)'],
+      ['0.65rem', 'XS — 0.65rem'],
+      ['0.75rem', 'S — 0.75rem'],
+      ['0.875rem', 'SM — 0.875rem'],
+      ['1rem', 'Base — 1rem'],
+      ['1.15rem', 'M — 1.15rem'],
+      ['1.25rem', 'M+ — 1.25rem'],
+      ['1.5rem', 'L — 1.5rem'],
+      ['1.75rem', 'XL — 1.75rem'],
+      ['2rem', '2XL — 2rem'],
+      ['2.5rem', '3XL — 2.5rem'],
+      ['3rem', '4XL — 3rem'],
+      ['clamp(1.75rem, 4vw, 2.75rem)', 'Fluid section title'],
+      ['clamp(2.4rem, 6vw, 4rem)', 'Fluid hero title'],
+    ];
+    Object.keys(TEXT_KEYS).forEach(key => {
+      const cfg = TEXT_KEYS[key];
+      const saved = (siteData.styles && siteData.styles[key]) || {};
+      const content = getTextContent(key);
+      const curSize = saved.fontSize || '';
+      let sizeOpts = sizePresets.map(function (p) {
+        const sel = (p[0] === curSize) ? ' selected' : '';
+        return '<option value="' + p[0].replace(/"/g, '&quot;') + '"' + sel + '>' + p[1] + '</option>';
+      }).join('');
+      // if custom size not in presets, add it
+      if (curSize && !sizePresets.some(function (p) { return p[0] === curSize; })) {
+        sizeOpts += '<option value="' + curSize.replace(/"/g, '&quot;') + '" selected>Custom — ' + curSize.replace(/</g, '') + '</option>';
+      }
+      const block = document.createElement('div');
+      block.className = 'list-block';
+      block.innerHTML =
+        '<label style="font-size:0.7rem;color:var(--text-muted)">' + escapeHtml(cfg.label) + '</label>' +
+        '<textarea class="admin-input text-content" data-key="' + key + '" rows="2" placeholder="*bold* and _italic_ supported">' + escapeHtml(content) + '</textarea>' +
+        '<div style="font-size:0.7rem;color:var(--text-dim);margin:0.25rem 0 0.5rem">Preview: <span class="text-preview">' + renderMiniMarkdown(content) + '</span></div>' +
+        '<div class="admin-row">' +
+        '<div><label style="font-size:0.65rem;color:var(--text-dim)">Text size</label>' +
+        '<select class="admin-select text-size-preset" data-key="' + key + '">' + sizeOpts + '</select>' +
+        '<input class="admin-input text-size" data-key="' + key + '" placeholder="Or custom: 1.1rem / 18px / clamp(...)" value="' + escapeHtml(curSize) + '" style="margin-top:0.35rem;margin-bottom:0" /></div>' +
+        '<div><label style="font-size:0.65rem;color:var(--text-dim)">Align</label>' +
+        '<select class="admin-select text-align" data-key="' + key + '">' +
+        '<option value="">Default</option>' +
+        '<option value="left"' + (saved.textAlign === 'left' ? ' selected' : '') + '>Left</option>' +
+        '<option value="center"' + (saved.textAlign === 'center' ? ' selected' : '') + '>Center</option>' +
+        '<option value="right"' + (saved.textAlign === 'right' ? ' selected' : '') + '>Right</option>' +
+        '</select></div></div>';
+      const ta = block.querySelector('.text-content');
+      const prev = block.querySelector('.text-preview');
+      const preset = block.querySelector('.text-size-preset');
+      const sizeInput = block.querySelector('.text-size');
+      ta.addEventListener('input', function () { prev.innerHTML = renderMiniMarkdown(ta.value); });
+      preset.addEventListener('change', function () {
+        sizeInput.value = preset.value;
+      });
+      sizeInput.addEventListener('input', function () {
+        // sync preset if matches
+        var found = false;
+        for (var i = 0; i < preset.options.length; i++) {
+          if (preset.options[i].value === sizeInput.value) {
+            preset.selectedIndex = i;
+            found = true;
+            break;
+          }
+        }
+        if (!found && sizeInput.value) {
+          // leave preset as-is; custom value kept in input
+        }
+      });
+      root.appendChild(block);
+    });
+  }
+
+
   function fillAdminForm() {
+    fillTextFields();
     const p = siteData.photographer || {};
     document.getElementById('editStudioName').value = p.name || '';
     document.getElementById('editTagline').value = p.tagline || '';
@@ -1358,11 +1560,29 @@ footer .foot-title { font-family: var(--font-heading); font-size: clamp(2rem, 6v
       });
     });
 
-    // keep style content in sync for older fields
+    // Text styles from Texts tab (*bold* _italic_ supported)
     newData.styles = newData.styles || {};
-    newData.styles.navTitle = Object.assign({}, newData.styles.navTitle, { content: newData.photographer.name });
-    newData.styles.aboutHeading = Object.assign({}, newData.styles.aboutHeading, { content: newData.about.heading });
-    newData.styles.aboutText = Object.assign({}, newData.styles.aboutText, { content: newData.about.text });
+    document.querySelectorAll('#editTextFields .text-content').forEach(ta => {
+      const key = ta.getAttribute('data-key');
+      if (!key) return;
+      const sizeEl = document.querySelector('#editTextFields .text-size[data-key="' + key + '"]');
+      const alignEl = document.querySelector('#editTextFields .text-align[data-key="' + key + '"]');
+      newData.styles[key] = {
+        content: ta.value,
+        fontSize: sizeEl ? sizeEl.value.trim() : '',
+        textAlign: alignEl ? alignEl.value : '',
+      };
+    });
+    // keep structured fields aligned with primary text keys
+    if (newData.styles.navTitle) newData.photographer.name = newData.styles.navTitle.content || newData.photographer.name;
+    if (newData.styles.navTagline) newData.photographer.tagline = newData.styles.navTagline.content || newData.photographer.tagline;
+    if (newData.styles.heroTitle) newData.photographer.heroTitle = newData.styles.heroTitle.content || newData.photographer.heroTitle;
+    if (newData.styles.heroBio) newData.photographer.bio = newData.styles.heroBio.content || newData.photographer.bio;
+    if (newData.styles.aboutHeading) newData.about.heading = newData.styles.aboutHeading.content || newData.about.heading;
+    if (newData.styles.aboutText) newData.about.text = newData.styles.aboutText.content || newData.about.text;
+    if (newData.styles.aboutSide) newData.about.side = newData.styles.aboutSide.content || newData.about.side;
+    if (newData.styles.albumTitle) newData.album.title = newData.styles.albumTitle.content || newData.album.title;
+    if (newData.styles.albumCardText) newData.album.description = newData.styles.albumCardText.content || newData.album.description;
 
     saveMsg.classList.add('hidden');
     try {
